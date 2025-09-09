@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <title>MAR SOLUTIONS — Финансовый мониторинг</title>
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            ui: ["Inter","system-ui","Segoe UI","Roboto","Arial","sans-serif"],
+            mono: ["ui-monospace","SFMono-Regular","Menlo","Consolas","monospace"]
+          },
+          screens: { xs: "420px" }
+        }
+      }
+    }
+  </script>
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body class="grid-bg">
+
+  <!-- Solana-inspired ambient background -->
+  <div class="bg-mesh"></div>
+  <canvas id="bg-particles" aria-hidden="true"></canvas>
+
+  <!-- ===== HEADER ===== -->
+  <header id="siteHeader" class="reveal">
+    <div class="container-xy">
+      <div class="flex items-stretch justify-between gap-4">
+        <div class="flex items-center gap-6 py-3">
+          <a href="#" class="font-mono text-sm tracking-widest px-2 py-1 border border-[var(--line)]">
+            MAR <span class="muted">SOLUTIONS</span>
+          </a>
+          <!-- Desktop nav -->
+          <nav class="hidden lg:flex items-center gap-6 text-sm">
+            <a href="#" class="hover:text-[var(--accent)]">Главная</a>
+            <a href="#about" class="hover:text-[var(--accent)]">О нас</a>
+            <a href="#solutions" class="hover:text-[var(--accent)]">Решения</a>
+            <a href="#projects" class="hover:text-[var(--accent)]">Наши работы</a>
+            <a href="#testimonials" class="hover:text-[var(--accent)]">Отзывы</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-2 py-2">
+          <input class="input w-40 md:w-64" placeholder="Поиск…" />
+          <a class="btn ml-2 hidden sm:inline-flex" href="#contact">Войти</a>
+          <!-- Mobile menu button -->
+          <button id="navToggle" class="btn chip lg:hidden ml-2"
+                  aria-controls="mobileNav" aria-expanded="false" type="button">
+            Меню
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile panel -->
+      <nav id="mobileNav" class="lg:hidden" hidden>
+        <div class="mobile-nav glass angled">
+          <a href="#"             class="mobile-link">Главная</a>
+          <a href="#about"        class="mobile-link">О нас</a>
+          <a href="#solutions"    class="mobile-link">Решения</a>
+          <a href="#projects"     class="mobile-link">Наши работы</a>
+          <a href="#testimonials" class="mobile-link">Отзывы</a>
+          <a href="#contact"      class="mobile-link sm:hidden">Войти</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MASTHEAD (Hero) ===== -->
+  <section id="masthead" class="masthead reveal">
+    <div class="container-xy">
+      <div class="copy glass angled p-6 md:p-10">
+        <h1>Защита от манипуляций и&nbsp;финансовых махинаций</h1>
+        <p class="muted mt-4 max-w-prose">
+          Компания <strong>MAR Solutions</strong> разрабатывает программные решения
+          для мониторинга рынка, выявления аномалий и предотвращения схем финансовых злоупотреблений.
+          Мы помогаем банкам и регуляторам обеспечивать контроль операций, соответствие требованиям и безопасность данных.
+        </p>
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a href="#contact" class="btn btn-primary">Связаться</a>
+          <a href="#learn" class="btn">Узнать больше</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLIENTS (Marquee) ===== -->
+  <section class="container-xy clients-overlap">
+    <div class="glass angled p-6 md:p-8 reveal">
+      <h2 class="mb-2">Наши клиенты</h2>
+      <div class="muted mb-6 text-sm">Крупнейшие банки и финтех-компании</div>
+
+      <div class="marquee py-4">
+        <div class="marquee-track">
+          <img src="https://placehold.co/180x44/0b1f0b/9ef39e?text=%D0%A1%D0%91%D0%95%D0%A0+%D0%91%D0%90%D0%9D%D0%9A" alt="Сбер Банк" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="Альфа Банк" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/1a1711/ffe08a?text=%D0%A2+%D0%91%D0%90%D0%9D%D0%9A" alt="Т Банк" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="Альфа Банк" class="h-11 w-auto" />
+          <!-- duplicate for seamless -->
+          <img src="https://placehold.co/180x44/0b1f0b/9ef39e?text=%D0%A1%D0%91%D0%95%D0%A0+%D0%91%D0%90%D0%9D%D0%9A" alt="" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/1a1711/ffe08a?text=%D0%A2+%D0%91%D0%90%D0%9D%D0%9A" alt="" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="" class="h-11 w-auto" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOLUTIONS ===== -->
+  <section id="solutions" class="container-xy py-12">
+    <h2 class="mb-6">Решения</h2>
+
+    <div class="grid lg:grid-cols-3 gap-6 mb-6">
+      <div class="glass angled p-6 md:p-8 lg:col-span-2 reveal">
+        <h3 class="mb-2">Платформа MARTA</h3>
+        <p class="muted">
+          Набор модулей для мониторинга рынков и соответствия требованиям. Быстрый анализ операций,
+          выявление аномалий, детекция манипуляций и прозрачная отчётность для комплаенса.
+        </p>
+        <div class="mt-5 flex gap-3">
+          <a href="#projects" class="btn btn-primary">Посмотреть в работе</a>
+          <a href="#contact" class="btn">Запросить демо</a>
+        </div>
+      </div>
+      <figure class="glass angled p-0 reveal">
+        <img src="https://placehold.co/900x520/0b1020/ffffff?text=MARTA+INTRO" alt="MARTA Intro" class="w-full h-full object-cover" />
+      </figure>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6">
+      <article class="glass angled p-0 reveal">
+        <img src="https://placehold.co/1200x560/0b1020/ffffff?text=MARTA+%E2%80%94+Market+Anomaly+Risk+Tracking" alt="MARTA Graph 1" class="w-full h-56 md:h-64 object-cover" />
+        <div class="p-6 md:p-8">
+          <div class="chip mb-3">MARTA</div>
+          <h3 class="mb-2">Market Anomaly Risk Tracking</h3>
+          <p class="muted">
+            Модуль торговой аналитики: мониторинг активности, распознавание аномалий и предотвращение схем
+            «pump &amp; dump», фронт-раннинга и иных злоупотреблений. Гибкие правила и отчётность.
+          </p>
+          <a href="#" class="btn mt-4">Узнать больше</a>
+        </div>
+      </article>
+
+      <article class="glass angled p-0 reveal">
+        <img src="https://placehold.co/1200x560/0b1020/ffffff?text=MARTA+%E2%80%94+Compliance+Module" alt="MARTA Graph 2" class="w-full h-56 md:h-64 object-cover" />
+        <div class="p-6 md:p-8">
+          <div class="chip mb-3">MARTA</div>
+          <h3 class="mb-2">Compliance Module</h3>
+          <p class="muted">
+            Сквозной контроль соответствия: трекинг нетипичных операций, автоматизированные проверки
+            требованиям регуляторов и прозрачные политики/шаблоны для управления рисками.
+          </p>
+          <a href="#" class="btn mt-4">Узнать больше</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== OUR WORKS (Slider + dots) ===== -->
+  <section id="projects" class="container-xy py-8">
+    <div class="glass angled p-6 md:p-8 reveal">
+      <div class="flex items-center justify-between mb-4">
+        <h2>Наши работы</h2>
+        <div class="flex items-center gap-2">
+          <button class="btn chip" data-target="#works" data-prev>Prev</button>
+          <button class="btn chip" data-target="#works" data-next>Next</button>
+        </div>
+      </div>
+
+      <div id="works" class="slider">
+        <button aria-label="Назад" class="nav-btn nav-prev" data-target="#works" data-prev>‹</button>
+        <button aria-label="Вперёд" class="nav-btn nav-next" data-target="#works" data-next>›</button>
+
+        <div class="slider-track">
+          <div class="slide grid lg:grid-cols-2 gap-6 p-1">
+            <figure class="glass angled p-0">
+              <img src="https://placehold.co/1200x700/0b1020/ffffff?text=Chart+%231" alt="Скриншот графика 1" class="w-full h-full object-cover" />
+            </figure>
+            <div class="glass angled p-6">
+              <div class="chip mb-4">MARTA</div>
+              <p class="muted">Непрерывное исследование транзакций, граф связей и алертинг с пояснениями для аудита.</p>
+              <a href="#" class="btn btn-primary mt-4">Подробнее</a>
+            </div>
+          </div>
+
+          <div class="slide grid lg:grid-cols-2 gap-6 p-1">
+            <figure class="glass angled p-0">
+              <img src="https://placehold.co/1200x700/0b1020/ffffff?text=Chart+%232" alt="Скриншот графика 2" class="w-full h-full object-cover" />
+            </figure>
+            <div class="glass angled p-6">
+              <div class="chip mb-4">MARTA</div>
+              <p class="muted">Дефектоскопия «pump &amp; dump»; сочетание правил и ML-факторов снизило ложные срабатывания на 37%.</p>
+              <a href="#" class="btn btn-primary mt-4">Подробнее</a>
+            </div>
+          </div>
+
+          <div class="slide grid lg:grid-cols-2 gap-6 p-1">
+            <figure class="glass angled p-0">
+              <img src="https://placehold.co/1200x700/0b1020/ffffff?text=Chart+%233" alt="Скриншот графика 3" class="w-full h-full object-cover" />
+            </figure>
+            <div class="glass angled p-6">
+              <div class="chip mb-4">MARTA</div>
+              <p class="muted">Визуализация цепочек сделок и графов отношений для ускоренного расследования.</p>
+              <a href="#" class="btn btn-primary mt-4">Подробнее</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-dots" id="works-dots" aria-label="Навигация по слайдам"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS (Slider + dots) ===== -->
+  <section id="testimonials" class="container-xy py-8">
+    <div class="glass angled p-6 md:p-8 reveal">
+      <div class="flex items-center justify-between mb-4">
+        <h2>Отзывы наших клиентов</h2>
+        <div class="flex items-center gap-2">
+          <button class="btn chip" data-target="#reviews" data-prev>Prev</button>
+          <button class="btn chip" data-target="#reviews" data-next>Next</button>
+        </div>
+      </div>
+
+      <div id="reviews" class="slider">
+        <button aria-label="Назад" class="nav-btn nav-prev" data-target="#reviews" data-prev>‹</button>
+        <button aria-label="Вперёд" class="nav-btn nav-next" data-target="#reviews" data-next>›</button>
+
+        <div class="slider-track">
+          <article class="slide p-2">
+            <div class="glass angled p-5 h-full flex flex-col">
+              <div class="text-2xl font-extrabold mb-3" style="color:var(--accent)">A</div>
+              <p class="muted">Альфа-Банк — надёжный партнёр в области высоконагруженных систем мониторинга.</p>
+              <div class="mt-auto pt-4 text-sm">Иван Иванович<br><span class="muted">(аккаунт)</span></div>
+            </div>
+          </article>
+
+          <article class="slide p-2">
+            <div class="glass angled p-5 h-full flex flex-col">
+              <div class="text-2xl font-extrabold mb-3" style="color:var(--accent)">A</div>
+              <p class="muted">Гибкая настройка правил и понятные отчёты для комплаенса. Быстрая поддержка.</p>
+              <div class="mt-auto pt-4 text-sm">Иван Иванович<br><span class="muted">(аккаунт)</span></div>
+            </div>
+          </article>
+
+          <article class="slide p-2">
+            <div class="glass angled p-5 h-full flex flex-col">
+              <div class="text-2xl font-extrabold mb-3" style="color:var(--accent)">A</div>
+              <p class="muted">Система помогает заранее видеть нетипичные цепочки транзакций и их останавливать.</p>
+              <div class="mt-auto pt-4 text-sm">Иван Иванович<br><span class="muted">(аккаунт)</span></div>
+            </div>
+          </article>
+
+          <article class="slide p-2">
+            <div class="glass angled p-5 h-full flex flex-col">
+              <div class="text-2xl font-extrabold mb-3" style="color:var(--accent)">A</div>
+              <p class="muted">Высокая скорость внедрения и качественная поддержка.</p>
+              <div class="mt-auto pt-4 text-sm">Иван Иванович<br><span class="muted">(аккаунт)</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="slider-dots" id="reviews-dots" aria-label="Навигация по слайдам"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section id="contact" class="container-xy py-10">
+    <div class="grid lg:grid-cols-2 gap-6 items-stretch">
+      <div class="glass angled p-6 md:p-8 reveal">
+        <h2 class="mb-2">Хотите обсудить детали?</h2>
+        <p class="muted max-w-prose">
+          Оставьте заявку — мы свяжемся с вами, чтобы обсудить задачи и показать демо.
+          Расскажем о внедрении, сроках и типовых сценариях использования.
+        </p>
+        <a href="#" class="btn btn-primary mt-6">Задать вопрос</a>
+      </div>
+      <figure class="glass angled p-0 reveal">
+        <img src="https://placehold.co/1200x700/111827/ffffff?text=CONTACT+PHOTO" alt="Контакт" class="w-full h-full object-cover" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== NEWS ===== -->
+  <section id="learn" class="container-xy py-12">
+    <div class="grid lg:grid-cols-3 gap-6">
+      <div class="glass angled p-6 md:p-7 reveal">
+        <h2 class="mb-6">Новости о продукте</h2>
+
+        <article class="glass angled p-0 mb-6">
+          <img src="https://placehold.co/800x420/0b1020/ffffff?text=%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+MARTA" alt="Обновление MARTA" class="w-full h-44 object-cover" />
+          <div class="p-5">
+            <div class="chip mb-3">MARTA</div>
+            <p class="muted">Новые правила, расширенная отчётность и повышение стабильности.</p>
+            <a href="#" class="btn mt-4">Узнать больше</a>
+          </div>
+        </article>
+
+        <article class="glass angled p-0 mb-6">
+          <img src="https://placehold.co/800x420/0b1020/ffffff?text=Roadmap" alt="Дорожная карта" class="w-full h-44 object-cover" />
+          <div class="p-5">
+            <div class="chip mb-3">MARTA</div>
+            <p class="muted">Рост производительности и устойчивости к пиковым нагрузкам.</p>
+            <a href="#" class="btn mt-4">Узнать больше</a>
+          </div>
+        </article>
+
+        <a href="#" class="btn w-full">Показать больше</a>
+      </div>
+
+      <div class="glass angled p-6 md:p-7 lg:col-span-2 reveal">
+        <h2 class="mb-6">Новости о компании</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <article class="glass angled p-0">
+            <img src="https://placehold.co/800x420/0b1020/ffffff?text=%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%8C+1" alt="Новость 1" class="w-full h-44 object-cover" />
+            <div class="p-5">
+              <div class="chip mb-3">MARTA</div>
+              <p class="muted">Интеграции с банками-партнёрами и автоматизация расследований.</p>
+              <a href="#" class="btn mt-4">Узнать больше</a>
+            </div>
+          </article>
+
+          <article class="glass angled p-0">
+            <img src="https://placehold.co/800x420/0b1020/ffffff?text=%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%8C+2" alt="Новость 2" class="w-full h-44 object-cover" />
+            <div class="p-5">
+              <div class="chip mb-3">MARTA</div>
+              <p class="muted">Расширение аналитической команды и практик безопасности данных.</p>
+              <a href="#" class="btn mt-4">Узнать больше</a>
+            </div>
+          </article>
+
+          <article class="glass angled p-0">
+            <img src="https://placehold.co/800x420/0b1020/ffffff?text=%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%8C+3" alt="Новость 3" class="w-full h-44 object-cover" />
+            <div class="p-5">
+              <div class="chip mb-3">MARTA</div>
+              <p class="muted">Публикация методологии по выявлению рыночных манипуляций.</p>
+              <a href="#" class="btn mt-4">Узнать больше</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="glass angled mt-10 reveal">
+    <div class="container-xy py-10">
+      <div class="grid md:grid-cols-5 gap-10">
+        <div class="md:col-span-2">
+          <div class="font-mono text-sm tracking-widest inline-block px-2 py-1 border border-[var(--line)] mb-4">
+            MAR <span class="muted">SOLUTIONS</span>
+          </div>
+          <p class="muted">
+            MAR SOLUTIONS — платформа мониторинга и анализа рыночных данных.
+            Мы помогаем выявлять манипуляции, предотвращать мошенничество и обеспечивать соответствие требованиям.
+          </p>
+          <div class="flex gap-2 mt-4">
+            <a class="btn chip" href="#">LinkedIn</a>
+            <a class="btn chip" href="#">GitHub</a>
+            <a class="btn chip" href="#">Email</a>
+          </div>
+        </div>
+
+        <div class="text-sm">
+          <h3 class="mb-2">Заголовок</h3>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Новости</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Карьера</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Документы</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Конфиденциальность</a>
+        </div>
+        <div class="text-sm">
+          <h3 class="mb-2">Заголовок</h3>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Наши решения</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Партнёры</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Поддержка</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Контакты</a>
+        </div>
+        <div class="text-sm">
+          <h3 class="mb-2">Заголовок</h3>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Блог</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">События</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Команда</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Ресурсы</a>
+        </div>
+      </div>
+      <div class="rule my-8"></div>
+      <div class="text-xs muted">© MAR Solutions. Все права защищены.</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script defer src="js/script.js"></script>
+</body>
+</html>

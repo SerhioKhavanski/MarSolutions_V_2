@@ -1,0 +1,228 @@
+/* ================= THEME (auto) ================= */
+html { color-scheme: dark light; }
+:root{
+  --h1-min: 40px;  --h1-vw: 6.8vw; --h1-max: 96px;
+  --h2-min: 28px;  --h2-vw: 4.2vw; --h2-max: 56px;
+  --h3-min: 20px;  --h3-vw: 2.8vw; --h3-max: 32px;
+
+  /* Accent set */
+  --sol-purple: #0077ffad;
+  --sol-green:  #554b8d;
+  --sol-cyan:   #00D1FF;
+
+  --bg: #0a0d12;
+  --surface: rgba(16,20,28,.48);
+  --muted: #9aa4b2;
+  --text:  #e8ecf2;
+  --line:  #1e2734;
+  --gridline: rgba(255,255,255,.04);
+
+  --accent: var(--sol-purple);
+  --container-pad: 8px;
+  --masthead-img: url("https://placehold.co/2000x1100/10151f/ffffff?text=HEADER+BACKGROUND");
+  --masthead-h: clamp(440px, 72vh, 860px);
+  --container-max: 1240px;
+  --content-left: max(var(--container-pad),
+                     calc((100vw - var(--container-max)) / 2 + var(--container-pad)));
+}
+
+/* ===== Masthead: background image + overlayed text ===== */
+.masthead{
+  position: relative;
+  min-height: var(--masthead-h);
+  display: grid;
+  align-items: center;
+  isolation: isolate;
+  padding-top: 56px;
+}
+.masthead::before{
+  content:""; position:absolute; inset:0;
+  background: var(--masthead-img) center / cover no-repeat;
+  filter: saturate(1.05) contrast(1.02);
+  z-index: 0;
+}
+.masthead::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.62) 55%, rgba(0,0,0,.38) 100%);
+  z-index: 0;
+}
+.masthead .copy{ position: relative; z-index: 1; max-width: 760px; margin-bottom: 6vh; }
+.masthead--bare .copy{ background: transparent !important; border: 0 !important; backdrop-filter: none !important; }
+.masthead > .container-xy{
+  align-self: center; justify-self: start;
+  margin-left: var(--content-left); margin-right: 0;
+  max-width: var(--container-max); width: auto;
+  padding-left: 0; padding-right: var(--container-pad);
+}
+@media (prefers-color-scheme: light){
+  .masthead::after{ background: linear-gradient(180deg, rgba(0,0,0,.26) 0%, rgba(0,0,0,.42) 55%, rgba(0,0,0,.24) 100%); }
+}
+
+/* =============== GLOBAL (sharp geometry) =============== */
+*,*::before,*::after{ box-sizing:border-box; }
+:root * { border-radius: 0 !important; }
+html { min-height: 100%; }
+body { height: auto; min-height: 100dvh; margin:0; background:var(--bg); color:var(--text);
+       font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; line-height:1.55; }
+
+/* ===== BACKGROUND: grid with feathered holes ===== */
+.grid-bg{
+  position: relative;
+  background-image:
+    radial-gradient(circle at 12% 9%,   var(--bg) 0 calc(320px - 120px), transparent 320px),
+    radial-gradient(circle at 72% 12%,  var(--bg) 0 calc(360px - 140px), transparent 360px),
+    radial-gradient(circle at 35% 20%,  var(--bg) 0 calc(380px - 150px), transparent 380px),
+    radial-gradient(circle at 88% 27%,  var(--bg) 0 calc(320px - 120px), transparent 320px),
+    radial-gradient(circle at 18% 39%,  var(--bg) 0 calc(360px - 140px), transparent 360px),
+    radial-gradient(circle at 58% 46%,  var(--bg) 0 calc(400px - 160px), transparent 400px),
+    radial-gradient(circle at 8%  58%,  var(--bg) 0 calc(340px - 130px), transparent 340px),
+    radial-gradient(circle at 46% 64%,  var(--bg) 0 calc(420px - 170px), transparent 420px),
+    radial-gradient(circle at 90% 71%,  var(--bg) 0 calc(360px - 140px), transparent 360px),
+    radial-gradient(circle at 28% 79%,  var(--bg) 0 calc(380px - 150px), transparent 380px),
+    radial-gradient(circle at 66% 87%,  var(--bg) 0 calc(360px - 140px), transparent 360px),
+    radial-gradient(circle at 12% 94%,  var(--bg) 0 calc(400px - 160px), transparent 400px),
+    radial-gradient(circle at 82% 97%,  var(--bg) 0 calc(340px - 130px), transparent 340px),
+    radial-gradient(circle at 40% 98%,  var(--bg) 0 calc(420px - 170px), transparent 420px),
+    linear-gradient(to right, var(--gridline) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--gridline) 1px, transparent 1px);
+  background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, 48px 48px, 48px 48px;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat, repeat;
+  overflow-x: clip;
+}
+
+/* Gradient mesh layer */
+.bg-mesh{
+  --x1: 12; --y1: 22;
+  --x2: 80; --y2: 18;
+  --x3: 70; --y3: 78;
+  position:fixed; inset: -12vmax !important; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(60vmax 60vmax at calc(var(--x1)*1%) calc(var(--y1)*1%), rgba(69,112,255,.22), transparent 60%),
+    radial-gradient(50vmax 50vmax at calc(var(--x2)*1%) calc(var(--y2)*1%), rgba(18,146,197,.16), transparent 55%),
+    radial-gradient(70vmax 70vmax at calc(var(--x3)*1%) calc(var(--y3)*1%), rgba(17,0,255,.14),   transparent 55%);
+  filter:saturate(1.1);
+  animation: none !important;
+  will-change: opacity, filter;
+}
+@keyframes meshMoveSafe{
+  0%{ transform: translate3d(0,0,0); }
+  50%{ transform: translate3d(0,-1vmax,0); }
+  100%{ transform: translate3d(1vmax, .6vmax, 0); }
+}
+.bg-mesh.breathe{ animation: meshMoveSafe 32s ease-in-out infinite alternate !important; }
+
+/* Soft particle layer */
+#bg-particles{ position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.45; }
+
+/* ===== LAYOUT ===== */
+.container-xy{ max-width:1240px; margin:0 auto; padding-left: var(--container-pad); padding-right: var(--container-pad); position:relative; z-index:2; }
+/* overlap of clients block over masthead (½ actual marquee height) */
+section.container-xy.clients-overlap{ position: relative; z-index: 5; transform: translateY(calc(-0.5 * var(--marquee-h, 120px))); will-change: transform; }
+.clients-overlap .glass{ overflow: visible; }
+
+.muted{ color:var(--muted); }
+.rule{ height:1px; background:var(--line); }
+
+/* ===== FROSTED-GLASS BLOCKS ===== */
+.glass{
+  background: var(--surface);
+  border:1px solid var(--line);
+  /* блюр включаем только у видимых (через .use-blur — см. JS) */
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.glass.use-blur{ -webkit-backdrop-filter: blur(4px) saturate(1.05); backdrop-filter: blur(4px) saturate(1.05); }
+
+/* Beveled top-right corner */
+.angled{ clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%); }
+
+/* ===== Buttons / Inputs ===== */
+.btn{ display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border:1px solid var(--line); background:transparent; color:var(--text); font-weight:700; letter-spacing:.02em; text-decoration:none; }
+.btn:hover{ border-color: var(--accent); color: var(--text); }
+.btn-primary{ background: var(--accent); color:#00121a; border-color: var(--accent); }
+.chip{ display:inline-block; padding:4px 8px; border:1px solid var(--line); background:transparent; font-size:12px; letter-spacing:.04em; }
+.input{ background:transparent; border:1px solid var(--line); color:var(--text); padding:10px 12px; }
+.input::placeholder{ color:var(--muted); }
+
+/* ===== Sticky nav ===== */
+#siteHeader{ position: sticky; top:0; z-index:40; will-change:transform, background; transition: transform .24s ease, background-color .24s ease, box-shadow .24s ease; background: rgba(10,13,18,.88); border-bottom:1px solid rgba(0,0,0,.25); color:#fff; backdrop-filter: blur(8px) saturate(1.05); }
+#siteHeader.nav-hidden{ transform: translateY(-100%); }
+#siteHeader a{ color:#fff; }
+#siteHeader a:hover{ color: var(--accent); }
+#siteHeader .input{ color:#fff; border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.06); }
+#siteHeader .input::placeholder{ color: rgba(255,255,255,.6); }
+
+/* Mobile nav panel */
+#mobileNav[hidden]{ display:none; }
+#mobileNav{ position: relative; z-index:45; }
+#mobileNav .mobile-nav{ position: absolute; left:0; right:0; top:8px; background: rgba(10,13,18,.96); border:1px solid var(--line); padding:6px 0; }
+#mobileNav .mobile-link{ display:block; padding: 12px var(--container-pad); color:#fff; text-decoration:none; border-top:1px solid rgba(255,255,255,.08); }
+#mobileNav .mobile-link:first-child{ border-top:0; }
+#mobileNav .mobile-link:hover{ color: var(--accent); }
+
+/* ===== Marquee ===== */
+.marquee{ overflow:hidden; position:relative; }
+.marquee-track{ display:flex; gap:48px; align-items:center; will-change:transform; animation: marquee 28s linear infinite; }
+.marquee:hover .marquee-track{ animation-play-state: paused; }
+@keyframes marquee{ 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+@media (prefers-reduced-motion: reduce){ .marquee-track{ animation:none; } }
+
+/* ===== Sliders ===== */
+.slider{ position:relative; overflow:hidden; }
+.slider-track{ display:flex; transition: transform .45s ease; will-change:transform; }
+.slide{ flex:0 0 100%; }
+.nav-btn{ position:absolute; top:0; bottom:0; width:56px; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.0); border:0; color: var(--text); font-size:22px; font-weight:800; }
+.nav-btn:hover{ background: rgba(0,0,0,.06); }
+.nav-prev{ left:0; border-right:1px solid var(--line); }
+.nav-next{ right:0; border-left:1px solid var(--line); }
+
+/* Pagination squares */
+.slider-dots{ display:flex; gap:8px; justify-content:center; padding-top:12px; }
+.slider-dots .dot{ width:10px; height:10px; border:1px solid var(--line); background:transparent; cursor:pointer; }
+.slider-dots .dot:hover{ border-color: var(--accent); }
+.slider-dots .dot.active{ background: var(--accent); border-color: var(--accent); }
+
+/* ===== Type ===== */
+h1, h2, h3{ font-weight:800; letter-spacing:.005em; margin:0 0 .5em 0; line-height:1.12; }
+h1{ font-size: clamp(var(--h1-min), var(--h1-vw), var(--h1-max)); line-height:1.06; }
+h2{ font-size: clamp(var(--h2-min), var(--h2-vw), var(--h2-max)); line-height:1.08; }
+h3{ font-size: clamp(var(--h3-min), var(--h3-vw), var(--h3-max)); line-height:1.14; }
+.masthead .copy h1{ font-size: clamp(44px, 7.5vw, 45px); }
+.container-xy > h2{ margin-bottom:.8em; }
+
+/* ===== Reveal on scroll ===== */
+.reveal{ opacity:0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+.is-visible{ opacity:1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; } }
+
+/* ===== Performance helpers ===== */
+html[data-perf="low"] .glass.use-blur{ -webkit-backdrop-filter:none; backdrop-filter:none; }
+html[data-perf="low"] #bg-particles{ display:none; }
+html[data-perf="low"] .marquee-track{ animation-duration: 50s; }
+
+/* Content visibility (Chromium) */
+section, .glass{ content-visibility: auto; contain: layout style paint; }
+
+/* ===== Mobile tuning for the background holes ===== */
+@media (max-width: 768px){
+  .grid-bg{
+    background-image:
+      radial-gradient(circle at 12% 9%,   var(--bg) 0 calc(240px - 90px),  transparent 240px),
+      radial-gradient(circle at 72% 12%,  var(--bg) 0 calc(280px - 110px), transparent 280px),
+      radial-gradient(circle at 35% 20%,  var(--bg) 0 calc(300px - 120px), transparent 300px),
+      radial-gradient(circle at 88% 27%,  var(--bg) 0 calc(240px - 90px),  transparent 240px),
+      radial-gradient(circle at 18% 39%,  var(--bg) 0 calc(280px - 110px), transparent 280px),
+      radial-gradient(circle at 58% 46%,  var(--bg) 0 calc(320px - 130px), transparent 320px),
+      radial-gradient(circle at 8%  58%,  var(--bg) 0 calc(260px - 100px), transparent 260px),
+      radial-gradient(circle at 46% 64%,  var(--bg) 0 calc(320px - 130px), transparent 320px),
+      radial-gradient(circle at 90% 71%,  var(--bg) 0 calc(280px - 110px), transparent 280px),
+      radial-gradient(circle at 28% 79%,  var(--bg) 0 calc(300px - 120px), transparent 300px),
+      radial-gradient(circle at 66% 87%,  var(--bg) 0 calc(280px - 110px), transparent 280px),
+      radial-gradient(circle at 12% 94%,  var(--bg) 0 calc(320px - 130px), transparent 320px),
+      radial-gradient(circle at 82% 97%,  var(--bg) 0 calc(260px - 100px), transparent 260px),
+      radial-gradient(circle at 40% 98%,  var(--bg) 0 calc(320px - 130px), transparent 320px),
+      linear-gradient(to right, var(--gridline) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--gridline) 1px, transparent 1px);
+  }
+}
