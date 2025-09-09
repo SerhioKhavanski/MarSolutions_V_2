@@ -22,12 +22,11 @@
     }
   </script>
 
-  <!-- Site CSS -->
+
   <link rel="stylesheet" href="css/main.css" />
 </head>
 <body class="grid-bg">
 
-  <!-- Solana-inspired ambient background -->
   <div class="bg-mesh"></div>
   <canvas id="bg-particles" aria-hidden="true"></canvas>
 
@@ -50,7 +49,6 @@
         </div>
         <div class="flex items-center gap-2 py-2">
           <input class="input w-40 md:w-64" placeholder="Поиск…" />
-          <a class="btn ml-2 hidden sm:inline-flex" href="#contact">Войти</a>
           <!-- Mobile menu button -->
           <button id="navToggle" class="btn chip lg:hidden ml-2"
                   aria-controls="mobileNav" aria-expanded="false" type="button">
@@ -74,26 +72,32 @@
   </header>
 
   <!-- ===== MASTHEAD (Hero) ===== -->
-  <section id="masthead" class="masthead reveal">
-    <div class="container-xy">
-      <div class="copy glass angled p-6 md:p-10">
-        <h1>Защита от манипуляций и&nbsp;финансовых махинаций</h1>
-        <p class="muted mt-4 max-w-prose">
-          Компания <strong>MAR Solutions</strong> разрабатывает программные решения
-          для мониторинга рынка, выявления аномалий и предотвращения схем финансовых злоупотреблений.
-          Мы помогаем банкам и регуляторам обеспечивать контроль операций, соответствие требованиям и безопасность данных.
-        </p>
-        <div class="flex flex-wrap gap-3 mt-6">
-          <a href="#contact" class="btn btn-primary">Связаться</a>
-          <a href="#learn" class="btn">Узнать больше</a>
-        </div>
+<section id="masthead" class="masthead reveal">
+  <!-- Фоновое видео -->
+  <video class="masthead-video" autoplay muted loop playsinline>
+    <source src="img/hero_video.mp4" type="video/mp4" />
+    Ваш браузер не поддерживает видеофон.
+  </video>
+
+  <div class="container-xy">
+    <div class="copy glass angled p-6 md:p-10 moreBlur">
+      <h1>Защита от манипуляций и&nbsp;финансовых махинаций</h1>
+      <p class="muted mt-4 max-w-prose">
+        Компания <strong>MAR Solutions</strong> разрабатывает программные решения
+        для мониторинга рынка, выявления аномалий и предотвращения схем финансовых злоупотреблений.
+        Мы помогаем банкам и регуляторам обеспечивать контроль операций, соответствие требованиям и безопасность данных.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-6">
+        <a href="#contact" class="btn btn-primary">Связаться</a>
+        <a href="#learn" class="btn">Узнать больше</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ===== CLIENTS (Marquee) ===== -->
   <section class="container-xy clients-overlap">
-    <div class="glass angled p-6 md:p-8 reveal">
+    <div class="glass angled p-6 md:p-8 reveal moreBlur">
       <h2 class="mb-2">Наши клиенты</h2>
       <div class="muted mb-6 text-sm">Крупнейшие банки и финтех-компании</div>
 
@@ -175,8 +179,6 @@
       </div>
 
       <div id="works" class="slider">
-        <button aria-label="Назад" class="nav-btn nav-prev" data-target="#works" data-prev>‹</button>
-        <button aria-label="Вперёд" class="nav-btn nav-next" data-target="#works" data-next>›</button>
 
         <div class="slider-track">
           <div class="slide grid lg:grid-cols-2 gap-6 p-1">
@@ -230,8 +232,6 @@
       </div>
 
       <div id="reviews" class="slider">
-        <button aria-label="Назад" class="nav-btn nav-prev" data-target="#reviews" data-prev>‹</button>
-        <button aria-label="Вперёд" class="nav-btn nav-next" data-target="#reviews" data-next>›</button>
 
         <div class="slider-track">
           <article class="slide p-2">

@@ -1,9 +1,9 @@
 /* ================= THEME (auto) ================= */
 html { color-scheme: dark light; }
 :root{
-  --h1-min: 40px;  --h1-vw: 6.8vw; --h1-max: 96px;
-  --h2-min: 28px;  --h2-vw: 4.2vw; --h2-max: 56px;
-  --h3-min: 20px;  --h3-vw: 2.8vw; --h3-max: 32px;
+  --h1-min: 40px;  --h1-vw: 6.8vw; --h1-max: 45px;
+  --h2-min: 28px;  --h2-vw: 4.2vw; --h2-max: 34px;
+  --h3-min: 20px;  --h3-vw: 2.8vw; --h3-max: 25px;
 
   /* Accent set */
   --sol-purple: #0077ffad;
@@ -11,7 +11,7 @@ html { color-scheme: dark light; }
   --sol-cyan:   #00D1FF;
 
   --bg: #0a0d12;
-  --surface: rgba(16,20,28,.48);
+  --surface: rgba(16, 20, 28, 0.198);
   --muted: #9aa4b2;
   --text:  #e8ecf2;
   --line:  #1e2734;
@@ -19,7 +19,7 @@ html { color-scheme: dark light; }
 
   --accent: var(--sol-purple);
   --container-pad: 8px;
-  --masthead-img: url("https://placehold.co/2000x1100/10151f/ffffff?text=HEADER+BACKGROUND");
+  --masthead-img: url("../img/hero_video.mp4");
   --masthead-h: clamp(440px, 72vh, 860px);
   --container-max: 1240px;
   --content-left: max(var(--container-pad),
@@ -27,13 +27,24 @@ html { color-scheme: dark light; }
 }
 
 /* ===== Masthead: background image + overlayed text ===== */
-.masthead{
+.masthead {
   position: relative;
   min-height: var(--masthead-h);
   display: grid;
   align-items: center;
   isolation: isolate;
   padding-top: 56px;
+  overflow: hidden; /* важно, чтобы видео не вылезало */
+}
+
+.masthead-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.02);
+  z-index: 0;
 }
 .masthead::before{
   content:""; position:absolute; inset:0;
@@ -41,10 +52,19 @@ html { color-scheme: dark light; }
   filter: saturate(1.05) contrast(1.02);
   z-index: 0;
 }
-.masthead::after{
-  content:""; position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.62) 55%, rgba(0,0,0,.38) 100%);
-  z-index: 0;
+.masthead::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg,
+              rgba(0,0,0,.42) 0%,
+              rgba(0,0,0,.62) 55%,
+              rgba(0,0,0,.38) 100%);
+  z-index: 1;
+}
+.masthead .container-xy {
+  position: relative;
+  z-index: 2;
 }
 .masthead .copy{ position: relative; z-index: 1; max-width: 760px; margin-bottom: 6vh; }
 .masthead--bare .copy{ background: transparent !important; border: 0 !important; backdrop-filter: none !important; }
@@ -127,12 +147,9 @@ section.container-xy.clients-overlap{ position: relative; z-index: 5; transform:
 .glass{
   background: var(--surface);
   border:1px solid var(--line);
-  /* блюр включаем только у видимых (через .use-blur — см. JS) */
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
   box-shadow: 0 0 0 1px var(--line);
 }
-.glass.use-blur{ -webkit-backdrop-filter: blur(4px) saturate(1.05); backdrop-filter: blur(4px) saturate(1.05); }
+.glass.use-blur{ -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
 
 /* Beveled top-right corner */
 .angled{ clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%); }
@@ -185,10 +202,9 @@ section.container-xy.clients-overlap{ position: relative; z-index: 5; transform:
 
 /* ===== Type ===== */
 h1, h2, h3{ font-weight:800; letter-spacing:.005em; margin:0 0 .5em 0; line-height:1.12; }
-h1{ font-size: clamp(var(--h1-min), var(--h1-vw), var(--h1-max)); line-height:1.06; }
-h2{ font-size: clamp(var(--h2-min), var(--h2-vw), var(--h2-max)); line-height:1.08; }
-h3{ font-size: clamp(var(--h3-min), var(--h3-vw), var(--h3-max)); line-height:1.14; }
-.masthead .copy h1{ font-size: clamp(44px, 7.5vw, 45px); }
+h1{ font-size: clamp(var(--h1-min), var(--h1-vw), var(--h1-max)) !important; line-height:1.06; }
+h2{ font-size: clamp(var(--h2-min), var(--h2-vw), var(--h2-max)) !important; line-height:1.08; }
+h3{ font-size: clamp(var(--h3-min), var(--h3-vw), var(--h3-max)) !important; line-height:1.14; }
 .container-xy > h2{ margin-bottom:.8em; }
 
 /* ===== Reveal on scroll ===== */
@@ -197,8 +213,6 @@ h3{ font-size: clamp(var(--h3-min), var(--h3-vw), var(--h3-max)); line-height:1.
 @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; } }
 
 /* ===== Performance helpers ===== */
-html[data-perf="low"] .glass.use-blur{ -webkit-backdrop-filter:none; backdrop-filter:none; }
-html[data-perf="low"] #bg-particles{ display:none; }
 html[data-perf="low"] .marquee-track{ animation-duration: 50s; }
 
 /* Content visibility (Chromium) */
@@ -225,4 +239,17 @@ section, .glass{ content-visibility: auto; contain: layout style paint; }
       linear-gradient(to right, var(--gridline) 1px, transparent 1px),
       linear-gradient(to bottom, var(--gridline) 1px, transparent 1px);
   }
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #f6f7fb;                
+    --surface: rgba(255, 255, 255, 0.2);
+    --muted: #4b5563;              
+    --text:  #0a0d14;               
+    --line:  #cbd6ec;                 
+    --gridline: rgba(0,0,0,.06);     
+  }
+}
+.moreBlur{
+   -webkit-backdrop-filter: blur(20px) saturate(1.05); backdrop-filter: blur(20px) saturate(1.05) !important; 
 }
