@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MAR SOLUTIONS — О нас</title>
+
+<!-- Tailwind CSS (CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          ui: ["Inter","system-ui","Segoe UI","Roboto","Arial","sans-serif"],
+          mono: ["ui-monospace","SFMono-Regular","Menlo","Consolas","monospace"]
+        },
+        screens: { xs: "420px" }
+      }
+    }
+  }
+</script>
+
+<style>
+  /* ================= THEME (auto) ================= */
+  :root{
+    --sol-purple: #9945FF; /* Solana purple */
+    --sol-green:  #14F195; /* Solana green */
+    --sol-cyan:   #00D1FF; /* supporting cyan */
+
+    --bg: #0a0d12;             /* dark canvas */
+    --surface: rgba(16,20,28,.82);  /* frosted glass for blocks */
+    --muted: #9aa4b2;
+    --text:  #e8ecf2;
+    --line:  #1e2734;
+    --gridline: rgba(255,255,255,.04);
+
+    --accent: var(--sol-purple);
+    --container-pad: 8px;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg: #f6f7fb;
+      --surface: rgba(255,255,255,.78);
+      --muted: #4b5563;
+      --text:  #0a0d14;
+      --line:  #e5e7eb;
+      --gridline: rgba(0,0,0,.05);
+    }
+  }
+
+  /* =============== GLOBAL (sharp geometry) =============== */
+  *,*::before,*::after{ box-sizing:border-box; }
+  :root * { border-radius:0 !important; } /* строго 90° */
+  html{ min-height:100%; }
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+    line-height:1.55;
+    min-height:100%; min-height:100dvh; height:auto;
+  }
+
+  /* ===== BACKGROUND: grid + feathered holes + mesh + particles ===== */
+  .grid-bg{
+    position:relative;
+    /* HOLES (крупные, мягкая растушёвка) — сверху/середина/низ */
+    background-image:
+      radial-gradient(circle at 12% 8%,   var(--bg) 0 calc(520px - 180px), transparent 520px),
+      radial-gradient(circle at 72% 14%,  var(--bg) 0 calc(560px - 200px), transparent 560px),
+      radial-gradient(circle at 35% 22%,  var(--bg) 0 calc(600px - 220px), transparent 600px),
+      radial-gradient(circle at 88% 27%,  var(--bg) 0 calc(520px - 180px), transparent 520px),
+      radial-gradient(circle at 18% 40%,  var(--bg) 0 calc(560px - 200px), transparent 560px),
+      radial-gradient(circle at 58% 48%,  var(--bg) 0 calc(640px - 240px), transparent 640px),
+      radial-gradient(circle at 8%  58%,  var(--bg) 0 calc(560px - 200px), transparent 560px),
+      radial-gradient(circle at 46% 66%,  var(--bg) 0 calc(640px - 240px), transparent 640px),
+      radial-gradient(circle at 90% 72%,  var(--bg) 0 calc(580px - 210px), transparent 580px),
+      radial-gradient(circle at 28% 80%,  var(--bg) 0 calc(600px - 220px), transparent 600px),
+      radial-gradient(circle at 66% 88%,  var(--bg) 0 calc(580px - 210px), transparent 580px),
+      radial-gradient(circle at 12% 94%,  var(--bg) 0 calc(640px - 240px), transparent 640px),
+      /* GRID LINES — внизу списка */
+      linear-gradient(to right, var(--gridline) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--gridline) 1px, transparent 1px);
+    background-size:
+      auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,
+      48px 48px, 48px 48px;
+    background-repeat:
+      no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,
+      repeat, repeat;
+    overflow-x:clip;
+  }
+  @media (max-width: 768px){
+    .grid-bg{
+      background-image:
+        radial-gradient(circle at 12% 8%,   var(--bg) 0 calc(380px - 140px), transparent 380px),
+        radial-gradient(circle at 72% 14%,  var(--bg) 0 calc(420px - 160px), transparent 420px),
+        radial-gradient(circle at 35% 22%,  var(--bg) 0 calc(450px - 170px), transparent 450px),
+        radial-gradient(circle at 88% 27%,  var(--bg) 0 calc(380px - 140px), transparent 380px),
+        radial-gradient(circle at 18% 40%,  var(--bg) 0 calc(420px - 160px), transparent 420px),
+        radial-gradient(circle at 58% 48%,  var(--bg) 0 calc(480px - 180px), transparent 480px),
+        radial-gradient(circle at 8%  58%,  var(--bg) 0 calc(420px - 160px), transparent 420px),
+        radial-gradient(circle at 46% 66%,  var(--bg) 0 calc(480px - 180px), transparent 480px),
+        radial-gradient(circle at 90% 72%,  var(--bg) 0 calc(430px - 160px), transparent 430px),
+        radial-gradient(circle at 28% 80%,  var(--bg) 0 calc(450px - 170px), transparent 450px),
+        radial-gradient(circle at 66% 88%,  var(--bg) 0 calc(430px - 160px), transparent 430px),
+        radial-gradient(circle at 12% 94%,  var(--bg) 0 calc(480px - 180px), transparent 480px),
+        linear-gradient(to right, var(--gridline) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--gridline) 1px, transparent 1px);
+    }
+  }
+
+  .bg-mesh{
+    --x1: 12; --y1: 22;
+    --x2: 80; --y2: 18;
+    --x3: 70; --y3: 78;
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(60vmax 60vmax at calc(var(--x1)*1%) calc(var(--y1)*1%), rgba(153,69,255,.22), transparent 60%),
+      radial-gradient(50vmax 50vmax at calc(var(--x2)*1%) calc(var(--y2)*1%), rgba(20,241,149,.16), transparent 55%),
+      radial-gradient(70vmax 70vmax at calc(var(--x3)*1%) calc(var(--y3)*1%), rgba(0,209,255,.14), transparent 55%);
+    filter: saturate(1.1);
+    animation: meshMove 16s ease-in-out infinite alternate; /* ускоренная «дышка» */
+  }
+  @keyframes meshMove{
+    0%{ transform: translate3d(0,0,0) }
+    50%{ transform: translate3d(0,-1.2rem,0) }
+    100%{ transform: translate3d(.8rem,.6rem,0) }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .bg-mesh{ animation: none; }
+  }
+
+  #bg-particles{
+    position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.45;
+  }
+
+  /* ===== LAYOUT ===== */
+  .container-xy{ max-width:1240px; margin:0 auto; padding-left:var(--container-pad); padding-right:var(--container-pad); position:relative; z-index:2; }
+  .muted{ color:var(--muted); }
+  .rule{ height:1px; background:var(--line); }
+
+  /* ===== FROSTED-GLASS BLOCKS ===== */
+  .glass{
+    background: var(--surface);
+    border:1px solid var(--line);
+    backdrop-filter: blur(12px) saturate(1.05);
+    -webkit-backdrop-filter: blur(12px) saturate(1.05);
+    box-shadow: 0 0 0 1px var(--line);
+  }
+  .angled{ clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%); }
+
+  /* ===== BUTTONS/INPUTS ===== */
+  .btn{ display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border:1px solid var(--line); background:transparent; color:var(--text); font-weight:700; letter-spacing:.02em; text-decoration:none; }
+  .btn:hover{ border-color: var(--accent); }
+  .btn-primary{ background: var(--accent); color:#00121a; border-color: var(--accent); }
+  .chip{ display:inline-block; padding:4px 8px; border:1px solid var(--line); background:transparent; font-size:12px; letter-spacing:.04em; }
+  .input{ background:transparent; border:1px solid var(--line); color:var(--text); padding:10px 12px; }
+  .input::placeholder{ color:var(--muted); }
+
+  /* ===== STICKY NAV ===== */
+  #siteHeader{
+    position: sticky; top:0; z-index:40; will-change:transform, background;
+    transition: transform .24s ease, background-color .24s ease, box-shadow .24s ease;
+    background: rgba(10,13,18,.78);
+    border-bottom:1px solid var(--line);
+    backdrop-filter: blur(8px) saturate(1.05);
+  }
+  #siteHeader.nav-hidden{ transform: translateY(-100%); }
+
+  /* ===== MARQUEE / SLIDERS — оставляем для совместимости ===== */
+  .marquee{ overflow:hidden; position:relative; }
+  .marquee-track{ display:flex; gap:48px; align-items:center; will-change:transform; animation: marquee 28s linear infinite; }
+  .marquee:hover .marquee-track{ animation-play-state: paused; }
+  @keyframes marquee{ 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  .slider{ position:relative; overflow:hidden; }
+  .slider-track{ display:flex; transition: transform .45s ease; will-change:transform; }
+  .slide{ flex:0 0 100%; }
+  .nav-btn{ position:absolute; top:0; bottom:0; width:56px; display:flex; align-items:center; justify-content:center; background:transparent; border:0; color:var(--text); font-size:22px; font-weight:800; }
+  .nav-prev{ left:0; border-right:1px solid var(--line); } .nav-next{ right:0; border-left:1px solid var(--line); }
+  .slider-dots{ display:flex; gap:8px; justify-content:center; padding-top:12px; }
+  .slider-dots .dot{ width:10px; height:10px; border:1px solid var(--line); background:transparent; cursor:pointer; }
+  .slider-dots .dot.active{ background: var(--accent); border-color: var(--accent); }
+
+  /* ===== TYPO ===== */
+  h1,h2,h3,h4{ font-weight:800; letter-spacing:.01em; }
+  h1{ font-size:clamp(28px,4vw,44px); line-height:1.15; }
+  h2{ font-size:clamp(22px,3vw,30px); }
+  h3{ font-size:clamp(18px,2.4vw,20px); }
+
+  /* ===== REVEAL ===== */
+  .reveal{ opacity:0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+  .is-visible{ opacity:1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; } }
+
+  /* ===== ABOUT PAGE SPECIFICS ===== */
+  .icon-square{ width:24px; height:24px; background:var(--accent); display:inline-block; margin-right:10px; }
+  .expert-grid{ display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:24px; }
+  @media (max-width:1024px){ .expert-grid{ grid-template-columns: 1fr; } }
+
+  /* Timeline */
+  .timeline-wrap{ position:relative; }
+  .timeline-line{ position:absolute; left:50%; top:0; bottom:0; width:2px; background:var(--line); transform:translateX(-50%); }
+  .timeline-grid{ display:grid; gap:24px 24px; }
+  @media (min-width: 1024px){
+    .timeline-grid{ grid-template-columns: 1fr 28px 1fr; }
+  }
+  .timeline-marker{ width:18px; height:18px; background:var(--accent); box-shadow:0 0 0 2px rgba(0,0,0,.2); }
+</style>
+</head>
+<body class="grid-bg">
+
+  <!-- Ambient background -->
+  <div class="bg-mesh"></div>
+  <canvas id="bg-particles" aria-hidden="true"></canvas>
+
+  <!-- ===== HEADER ===== -->
+  <header id="siteHeader" class="reveal">
+    <div class="container-xy">
+      <div class="flex items-stretch justify-between gap-4">
+        <div class="flex items-center gap-6 py-3">
+          <a href="#" class="font-mono text-sm tracking-widest px-2 py-1 border border-[var(--line)]">MAR <span class="muted">SOLUTIONS</span></a>
+          <nav class="hidden md:flex items-center gap-6 text-sm">
+            <a href="index.html" class="hover:text-[var(--accent)]">Главная</a>
+            <a href="#expertise" class="hover:text-[var(--accent)]">Экспертиза</a>
+            <a href="#vision" class="hover:text-[var(--accent)]">Видение</a>
+            <a href="#history" class="hover:text-[var(--accent)]">История</a>
+            <a href="#culture" class="hover:text-[var(--accent)]">Культура</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-2 py-2">
+          <input class="input w-40 md:w-64" placeholder="Поиск…" />
+          <a class="btn ml-2" href="#contact">Войти</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO (сохраняем контент и стиль) ===== -->
+  <section class="container-xy">
+    <div class="grid lg:grid-cols-2 gap-8 items-stretch py-10 lg:py-16">
+      <div class="glass angled p-6 md:p-10 flex flex-col justify-between reveal">
+        <div>
+          <h1>Защита от манипуляций и&nbsp;финансовых махинаций</h1>
+          <p class="muted mt-4 max-w-prose">
+            С 2018 года <strong>MAR Solutions</strong> разрабатывает программные решения для мониторинга рынка,
+            выявления аномалий и предотвращения схем финансовых злоупотреблений. Мы помогаем банкам и регуляторам
+            обеспечивать контроль операций, соответствие требованиям и безопасность данных.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a href="#contact" class="btn btn-primary">Связаться</a>
+          <a href="#expertise" class="btn">Узнать больше</a>
+        </div>
+      </div>
+
+      <figure class="glass angled p-0 reveal">
+        <img src="https://placehold.co/1200x760/10151f/ffffff?text=ABOUT+HERO" alt="О нас — визуал" class="w-full h-full object-cover" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== EXPERTISE ===== -->
+  <section id="expertise" class="container-xy py-6">
+    <h2 class="mb-4">Экспертиза</h2>
+
+    <div class="glass angled p-6 md:p-8 reveal">
+      <div class="expert-grid">
+        <!-- Big visual block -->
+        <div class="glass angled p-0">
+          <img src="https://placehold.co/900x520/0b1020/ffffff?text=ANALYTICS+ILLUSTRATION" alt="Иллюстрация аналитики" class="w-full h-full object-cover">
+        </div>
+
+        <!-- 4 cards -->
+        <div class="grid gap-6">
+          <article class="glass angled p-5">
+            <div class="flex items-start gap-3">
+              <span class="icon-square"></span>
+              <div>
+                <h3 class="mb-1">Анализ цифровых рисков</h3>
+                <p class="muted text-sm">Выявление угроз и рисков в данных, построение правил для ранних стадий расследований и визуальная аналитика.</p>
+              </div>
+            </div>
+          </article>
+          <article class="glass angled p-5">
+            <div class="flex items-start gap-3">
+              <span class="icon-square"></span>
+              <div>
+                <h3 class="mb-1">Анализ цифровых рисков</h3>
+                <p class="muted text-sm">Выявление угроз и рисков в данных, построение правил для ранних стадий расследований и визуальная аналитика.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid gap-6">
+          <article class="glass angled p-5">
+            <div class="flex items-start gap-3">
+              <span class="icon-square"></span>
+              <div>
+                <h3 class="mb-1">Анализ цифровых рисков</h3>
+                <p class="muted text-sm">Выявление угроз и рисков в данных, построение правил для ранних стадий расследований и визуальная аналитика.</p>
+              </div>
+            </div>
+          </article>
+          <article class="glass angled p-5">
+            <div class="flex items-start gap-3">
+              <span class="icon-square"></span>
+              <div>
+                <h3 class="mb-1">Анализ цифровых рисков</h3>
+                <p class="muted text-sm">Выявление угроз и рисков в данных, построение правил для ранних стадий расследований и визуальная аналитика.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISION ===== -->
+  <section id="vision" class="container-xy py-10">
+    <div class="grid lg:grid-cols-2 gap-6 items-stretch">
+      <figure class="glass angled p-0 order-2 lg:order-1 reveal">
+        <img src="https://placehold.co/1200x700/111827/ffffff?text=VISION+PHOTO" alt="Наше видение" class="w-full h-full object-cover" />
+      </figure>
+      <div class="order-1 lg:order-2">
+        <div class="glass angled p-6 md:p-8 reveal">
+          <h2 class="mb-2">Наше видение</h2>
+          <p class="muted">
+            Связывайтесь с нами, если у вас есть вопросы, предложения или сложные кейсы.
+            Мы внимательно относимся к обратной связи и строим решения, чтобы можно было быстрее
+            выявлять нетипичные операции и открывать данные для проверки.
+          </p>
+          <a href="#contact" class="btn btn-primary mt-5">Связаться</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HISTORY (timeline) ===== -->
+  <section id="history" class="container-xy py-12">
+    <h2 class="text-center mb-8">Наша история</h2>
+
+    <div class="timeline-wrap reveal">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-grid">
+        <!-- Row 1 (left) -->
+        <div class="glass angled p-0">
+          <img src="https://placehold.co/800x420/0b1020/ffffff?text=R%26D+1" alt="Исследования" class="w-full h-44 object-cover">
+          <div class="p-5">
+            <div class="chip mb-2">MARTA</div>
+            <h3 class="mb-1">Упреждающее мышление</h3>
+            <p class="muted text-sm">Внедряем контроль на ранних стадиях, повышая прозрачность и эффективность анализа.</p>
+          </div>
+        </div>
+        <div class="hidden lg:flex items-center justify-center">
+          <div class="timeline-marker"></div>
+        </div>
+        <div></div>
+
+        <!-- Row 2 (right) -->
+        <div></div>
+        <div class="hidden lg:flex items-center justify-center">
+          <div class="timeline-marker"></div>
+        </div>
+        <div class="glass angled p-0">
+          <img src="https://placehold.co/800x420/0b1020/ffffff?text=R%26D+2" alt="Практики" class="w-full h-44 object-cover">
+          <div class="p-5">
+            <div class="chip mb-2">MARTA</div>
+            <h3 class="mb-1">Упреждающее мышление</h3>
+            <p class="muted text-sm">Гибкие правила, понятная визуализация и экспорт отчётов для аудитных проверок.</p>
+          </div>
+        </div>
+
+        <!-- Row 3 (left) -->
+        <div class="glass angled p-0">
+          <img src="https://placehold.co/800x420/0b1020/ffffff?text=R%26D+3" alt="Команда" class="w-full h-44 object-cover">
+          <div class="p-5">
+            <div class="chip mb-2">MARTA</div>
+            <h3 class="mb-1">Упреждающее мышление</h3>
+            <p class="muted text-sm">Снижаем ложные срабатывания и ускоряем расследования с помощью граф‑аналитики.</p>
+          </div>
+        </div>
+        <div class="hidden lg:flex items-center justify-center">
+          <div class="timeline-marker"></div>
+        </div>
+        <div></div>
+
+        <!-- Row 4 (right) -->
+        <div></div>
+        <div class="hidden lg:flex items-center justify-center">
+          <div class="timeline-marker"></div>
+        </div>
+        <div class="glass angled p-0">
+          <img src="https://placehold.co/800x420/0b1020/ffffff?text=R%26D+4" alt="Партнёрства" class="w-full h-44 object-cover">
+          <div class="p-5">
+            <div class="chip mb-2">MARTA</div>
+            <h3 class="mb-1">Упреждающее мышление</h3>
+            <p class="muted text-sm">Масштабируемость архитектуры и устойчивость к нагрузкам.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CULTURE ===== -->
+  <section id="culture" class="container-xy py-12">
+    <h2 class="mb-6">Наша культура</h2>
+    <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+      <figure class="glass angled p-0 reveal">
+        <img src="https://placehold.co/1200x700/141a25/ffffff?text=TEAM+CULTURE" alt="Наша культура" class="w-full h-full object-cover" />
+      </figure>
+
+      <div class="flex flex-col gap-6">
+        <article class="glass angled p-5 reveal">
+          <div class="flex items-start gap-3">
+            <span class="icon-square"></span>
+            <div>
+              <h3 class="mb-1">Прозрачная коммуникация</h3>
+              <p class="muted text-sm">Мы показываем логику принятых решений и помогаем всем участникам процессов видеть общую картину.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="glass angled p-5 reveal">
+          <div class="flex items-start gap-3">
+            <span class="icon-square"></span>
+            <div>
+              <h3 class="mb-1">Прозрачная коммуникация</h3>
+              <p class="muted text-sm">Открытость, честность и практичность — ключевые принципы взаимодействия и обратной связи.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="glass angled p-5 reveal">
+          <div class="flex items-start gap-3">
+            <span class="icon-square"></span>
+            <div>
+              <h3 class="mb-1">Прозрачная коммуникация</h3>
+              <p class="muted text-sm">Обучаем делиться контекстом и обсуждать риски, чтобы решения принимались быстрее.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM ===== -->
+  <section id="team" class="container-xy py-10">
+    <h2 class="mb-6">Лица компании</h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 6 одинаковых карточек -->
+      <!-- Карточка 1 -->
+      <article class="glass angled p-0 reveal">
+        <img src="https://placehold.co/800x520/0b1020/ffffff?text=TEAM+1" alt="Сотрудник" class="w-full h-64 object-cover">
+        <div class="p-5">
+          <h3 class="mb-1">Иван Иванович</h3>
+          <p class="muted text-sm">Свяжитесь с нами, если у вас есть вопросы, проекты или нужна консультация по нашим решениям.</p>
+        </div>
+      </article>
+      <!-- Карточка 2 -->
+      <article class="glass angled p-0 reveal">
+        <img src="https://placehold.co/800x520/0b1020/ffffff?text=TEAM+2" alt="Сотрудник" class="w-full h-64 object-cover">
+        <div class="p-5">
+          <h3 class="mb-1">Иван Иванович</h3>
+          <p class="muted text-sm">Свяжитесь с нами, если у вас есть вопросы, проекты или нужна консультация по нашим решениям.</p>
+        </div>
+      </article>
+      <!-- Карточка 3 -->
+      <article class="glass angled p-0 reveal">
+        <img src="https://placehold.co/800x520/0b1020/ffffff?text=TEAM+3" alt="Сотрудник" class="w-full h-64 object-cover">
+        <div class="p-5">
+          <h3 class="mb-1">Иван Иванович</h3>
+          <p class="muted text-sm">Свяжитесь с нами, если у вас есть вопросы, проекты или нужна консультация по нашим решениям.</p>
+        </div>
+      </article>
+      <!-- Карточка 4 -->
+      <article class="glass angled p-0 reveal">
+        <img src="https://placehold.co/800x520/0b1020/ffffff?text=TEAM+4" alt="Сотрудник" class="w-full h-64 object-cover">
+        <div class="p-5">
+          <h3 class="mb-1">Иван Иванович</h3>
+          <p class="muted text-sm">Свяжитесь с нами, если у вас есть вопросы, проекты или нужна консультация по нашим решениям.</p>
+        </div>
+      </article>
+      <!-- Карточка 5 -->
+      <article class="glass angled p-0 reveal">
+        <img src="https://placehold.co/800x520/0b1020/ffffff?text=TEAM+5" alt="Сотрудник" class="w-full h-64 object-cover">
+        <div class="p-5">
+          <h3 class="mb-1">Иван Иванович</h3>
+          <p class="muted text-sm">Свяжитесь с нами, если у вас есть вопросы, проекты или нужна консультация по нашим решениям.</p>
+        </div>
+      </article>
+      <!-- Карточка 6 -->
+      <article class="glass angled p-0 reveal">
+        <img src="https://placehold.co/800x520/0b1020/ffffff?text=TEAM+6" alt="Сотрудник" class="w-full h-64 object-cover">
+        <div class="p-5">
+          <h3 class="mb-1">Иван Иванович</h3>
+          <p class="muted text-sm">Свяжитесь с нами, если у вас есть вопросы, проекты или нужна консультация по нашим решениям.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="glass angled mt-10 reveal">
+    <div class="container-xy py-10">
+      <div class="grid md:grid-cols-5 gap-10">
+        <div class="md:col-span-2">
+          <div class="font-mono text-sm tracking-widest inline-block px-2 py-1 border border-[var(--line)] mb-4">
+            MAR <span class="muted">SOLUTIONS</span>
+          </div>
+          <p class="muted">
+            MAR SOLUTIONS — платформа мониторинга и анализа рыночных данных.
+            Мы помогаем выявлять манипуляции, предотвращать мошенничество и обеспечивать соответствие требованиям.
+          </p>
+          <div class="flex gap-2 mt-4">
+            <a class="btn chip" href="#">LinkedIn</a>
+            <a class="btn chip" href="#">GitHub</a>
+            <a class="btn chip" href="#">Email</a>
+          </div>
+        </div>
+
+        <div class="text-sm">
+          <h3 class="mb-2">Заголовок</h3>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Новости</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Карьера</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Документы</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Конфиденциальность</a>
+        </div>
+        <div class="text-sm">
+          <h3 class="mb-2">Заголовок</h3>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Наши решения</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Партнёры</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Поддержка</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Контакты</a>
+        </div>
+        <div class="text-sm">
+          <h3 class="mb-2">Заголовок</h3>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Блог</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">События</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Команда</a>
+          <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Ресурсы</a>
+        </div>
+      </div>
+      <div class="rule my-8"></div>
+      <div class="text-xs muted">© MAR Solutions. Все права защищены.</div>
+    </div>
+  </footer>
+
+  <!-- ================= INTERACTIVITY ================= -->
+  <script>
+    /* Sticky Header: hide on scroll down, show on scroll up */
+    (function(){
+      const h = document.getElementById('siteHeader');
+      let lastY = window.scrollY, ticking = false;
+      function onScroll(){
+        const y = window.scrollY;
+        const goingDown = y > lastY;
+        const past = y > 120;
+        if(goingDown && past){ h.classList.add('nav-hidden'); }
+        else { h.classList.remove('nav-hidden'); }
+        lastY = y; ticking = false;
+      }
+      window.addEventListener('scroll', ()=>{ if(!ticking){ requestAnimationFrame(onScroll); ticking=true; } }, {passive:true});
+    })();
+
+    /* Slider util — оставляем для совместимости */
+    function makeSlider(rootSelector, options={ perView:{mobile:1,tablet:1,desktop:1}, dots:true }){
+      const root = document.querySelector(rootSelector); if(!root) return;
+      const track = root.querySelector('.slider-track');
+      const slides = Array.from(root.querySelectorAll('.slide'));
+      const dotsWrap = root.querySelector('.slider-dots') || document.createElement('div');
+      if(!dotsWrap.classList.contains('slider-dots')){ dotsWrap.className='slider-dots'; root.appendChild(dotsWrap); }
+      let index = 0, dots = [], pages = 1;
+
+      function perView(){ const w=innerWidth; if(w>=1024) return options.perView.desktop||1; if(w>=768) return options.perView.tablet||1; return options.perView.mobile||1; }
+      function buildDots(){
+        pages = Math.max(1, Math.ceil(slides.length / perView()));
+        dotsWrap.innerHTML = '';
+        if(options.dots){
+          for(let i=0;i<pages;i++){
+            const b = document.createElement('button');
+            b.type='button'; b.className='dot'; b.addEventListener('click', ()=> goTo(i));
+            dotsWrap.appendChild(b);
+          }
+          dots = Array.from(dotsWrap.children);
+        }
+        updateDots();
+      }
+      function layout(){ const p = perView(); slides.forEach(s=> s.style.flex = `0 0 ${100/p}%`); buildDots(); goTo(index); }
+      function updateDots(){ dots.forEach((d,i)=> d.classList.toggle('active', i===index)); }
+      function goTo(i){ const p = perView(); const max = Math.max(0, Math.ceil(slides.length / p) - 1); index = Math.max(0, Math.min(i, max)); track.style.transform = `translate3d(-${index*100}%,0,0)`; updateDots(); }
+      function next(){ goTo(index+1); } function prev(){ goTo(index-1); }
+      document.querySelectorAll(`[data-target="${rootSelector}"][data-next]`).forEach(b=>b.addEventListener('click', next));
+      document.querySelectorAll(`[data-target="${rootSelector}"][data-prev]`).forEach(b=>b.addEventListener('click', prev));
+      root.addEventListener('keydown', e=>{ if(e.key==='ArrowRight') next(); if(e.key==='ArrowLeft') prev(); });
+      addEventListener('resize', layout, {passive:true}); layout();
+      return {next,prev,goTo,layout};
+    }
+
+    /* Fade-in on scroll */
+    (function(){
+      const targets = document.querySelectorAll('.reveal, .glass, .slider, .marquee');
+      const obs = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      targets.forEach(t=> obs.observe(t));
+    })();
+
+    /* Background particles */
+    (function(){
+      const c = document.getElementById('bg-particles');
+      const ctx = c.getContext('2d');
+      const mq = matchMedia('(prefers-reduced-motion: reduce)');
+      let dpr, raf;
+
+      function resize(){
+        dpr = devicePixelRatio || 1;
+        c.width = innerWidth * dpr; c.height = innerHeight * dpr;
+        c.style.width = innerWidth + 'px'; c.style.height = innerHeight + 'px';
+        ctx.setTransform(1,0,0,1,0,0); ctx.scale(dpr, dpr);
+      }
+      const count = () => Math.round(Math.min(120, (innerWidth*innerHeight)/15000));
+      let particles=[];
+      function init(){
+        particles = Array.from({length: count()}).map(()=>({
+          x: Math.random()*innerWidth,
+          y: Math.random()*innerHeight,
+          vx: (Math.random()-.5)*0.06,
+          vy: (Math.random()-.5)*0.06,
+          a: 0.15 + Math.random()*0.35,
+          s: Math.random()<0.5 ? 1 : 2
+        }));
+      }
+      function step(){
+        ctx.clearRect(0,0,innerWidth,innerHeight);
+        ctx.fillStyle = 'rgba(255,255,255,0.08)';
+        particles.forEach(p=>{
+          p.x += p.vx; p.y += p.vy;
+          if(p.x<-10) p.x=innerWidth+10; if(p.x>innerWidth+10) p.x=-10;
+          if(p.y<-10) p.y=innerHeight+10; if(p.y>innerHeight+10) p.y=-10;
+          ctx.globalAlpha = p.a; ctx.fillRect(p.x, p.y, p.s, p.s);
+        });
+        ctx.globalAlpha = 1;
+        raf = requestAnimationFrame(step);
+      }
+      function start(){ if(mq.matches) return; cancelAnimationFrame(raf); step(); }
+      function stop(){ cancelAnimationFrame(raf); ctx.clearRect(0,0,innerWidth,innerHeight); }
+
+      resize(); init(); start();
+      addEventListener('resize', ()=>{ resize(); init(); }, {passive:true});
+      mq.addEventListener?.('change', ()=> mq.matches ? stop() : start());
+    })();
+
+    /* BG mesh "lights" drift — ускоренный */
+    (function(){
+      const mesh = document.querySelector('.bg-mesh');
+      if(!mesh) return;
+      const mq = matchMedia('(prefers-reduced-motion: reduce)');
+      if (mq.matches) return;
+
+      const orbs = [
+        { x: 12, y: 22, vx:  0.0045, vy:  0.0032, min: 8,  max: 92 },
+        { x: 80, y: 18, vx: -0.0032, vy:  0.0036, min: 8,  max: 92 },
+        { x: 70, y: 78, vx:  0.0028, vy: -0.0030, min: 8,  max: 92 }
+      ];
+
+      let last = performance.now(), raf;
+      function frame(now){
+        const dt = Math.min(33, now - last);
+        last = now;
+        const speed = dt * 0.22; /* ускорение дрейфа */
+
+        orbs.forEach((o, i) => {
+          o.x += o.vx * speed; o.y += o.vy * speed;
+          if (o.x < o.min || o.x > o.max) o.vx *= -1;
+          if (o.y < o.min || o.y > o.max) o.vy *= -1;
+          mesh.style.setProperty(`--x${i+1}`, o.x.toFixed(2));
+          mesh.style.setProperty(`--y${i+1}`, o.y.toFixed(2));
+        });
+
+        raf = requestAnimationFrame(frame);
+      }
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) cancelAnimationFrame(raf);
+        else { last = performance.now(); raf = requestAnimationFrame(frame); }
+      });
+      raf = requestAnimationFrame(frame);
+    })();
+  </script>
+</body>
+</html>
