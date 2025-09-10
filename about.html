@@ -9,53 +9,95 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 
-<link href="main.css" rel="stylesheet"/></head>
+<link href="CSS/main.css" rel="stylesheet"/>
+<link rel="stylesheet" href="main.css"></head>
 <body class="grid-bg">
 <!-- Ambient background -->
 <div class="bg-mesh"></div>
-<canvas aria-hidden="true" id="bg-particles"></canvas>
-<!-- ===== HEADER ===== -->
-<header class="reveal" id="siteHeader">
-<div class="container-xy">
-<div class="flex items-stretch justify-between gap-4">
-<div class="flex items-center gap-6 py-3">
-<a class="font-mono text-sm tracking-widest px-2 py-1 border border-[var(--line)]" href="#">MAR <span class="muted">SOLUTIONS</span></a>
-<nav class="hidden md:flex items-center gap-6 text-sm">
-<a class="hover:text-[var(--accent)]" href="index.html">Главная</a>
-<a class="hover:text-[var(--accent)]" href="#expertise">Экспертиза</a>
-<a class="hover:text-[var(--accent)]" href="#vision">Видение</a>
-<a class="hover:text-[var(--accent)]" href="#history">История</a>
-<a class="hover:text-[var(--accent)]" href="#culture">Культура</a>
-</nav>
-</div>
-<div class="flex items-center gap-2 py-2">
-<input class="input w-40 md:w-64" placeholder="Поиск…"/>
-<a class="btn ml-2" href="#contact">Войти</a>
-</div>
-</div>
-</div>
-</header>
-<!-- ===== HERO (сохраняем контент и стиль) ===== -->
-<section class="container-xy">
-<div class="grid lg:grid-cols-2 gap-8 items-stretch py-10 lg:py-16">
-<div class="glass angled p-6 md:p-10 flex flex-col justify-between reveal">
-<div>
-<h1>Защита от манипуляций и финансовых махинаций</h1>
-<p class="muted mt-4 max-w-prose">
-            С 2018 года <strong>MAR Solutions</strong> разрабатывает программные решения для мониторинга рынка,
-            выявления аномалий и предотвращения схем финансовых злоупотреблений. Мы помогаем банкам и регуляторам
-            обеспечивать контроль операций, соответствие требованиям и безопасность данных.
-          </p>
-</div>
-<div class="flex flex-wrap gap-3 mt-6">
-<a class="btn btn-primary" href="#contact">Связаться</a>
-<a class="btn" href="#expertise">Узнать больше</a>
-</div>
-</div>
-<figure class="glass angled p-0 reveal">
-<img alt="О нас — визуал" class="w-full h-full object-cover" src="https://placehold.co/1200x760/10151f/ffffff?text=ABOUT+HERO"/>
-</figure>
-</div>
+  <header id="siteHeader" class="reveal">
+    <div class="container-xy">
+      <div class="flex items-stretch justify-between gap-4">
+        <div class="flex items-center gap-6 py-3">
+          <a href="#" class="menu-logo">
+            <img src="img/logo-dark.svg" alt="">
+          </a>
+          <!-- Desktop nav -->
+          <nav class="hidden lg:flex items-center gap-6 text-sm">
+            <a href="index.html" class="hover:text-[var(--accent)]">Главная</a>
+            <a href="about.html" class="hover:text-[var(--accent)]">О нас</a>
+            <a href="" class="hover:text-[var(--accent)]">Наши продукты</a>
+            <a href="" class="hover:text-[var(--accent)]">Ресурсы</a>
+            <a href="" class="hover:text-[var(--accent)]">Контакты</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-2 py-2">
+          <input class="input w-40 md:w-64" placeholder="Поиск…" />
+          <!-- Mobile menu button -->
+          <button id="navToggle" class="btn chip lg:hidden ml-2"
+                  aria-controls="mobileNav" aria-expanded="false" type="button">
+            Меню
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile panel -->
+      <nav id="mobileNav" class="lg:hidden" hidden>
+        <div class="mobile-nav glass angled">
+            <a href="index.html" class="hover:text-[var(--accent)]">Главная</a>
+            <a href="about.html" class="hover:text-[var(--accent)]">О нас</a>
+            <a href="" class="hover:text-[var(--accent)]">Наши продукты</a>
+            <a href="" class="hover:text-[var(--accent)]">Ресурсы</a>
+            <a href="" class="hover:text-[var(--accent)]">Контакты</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MASTHEAD (Hero) ===== -->
+<section id="masthead" class="masthead reveal">
+  <!-- Фоновое видео -->
+  <video class="masthead-video" autoplay muted loop playsinline>
+    <source src="img/hero_video.mp4" type="video/mp4" />
+    Ваш браузер не поддерживает видеофон.
+  </video>
+
+  <div class="container-xy">
+    <div class="copy glass angled p-6 md:p-10 moreBlur">
+      <h1>Защита от манипуляций и&nbsp;финансовых махинаций</h1>
+      <p class="muted mt-4 max-w-prose">
+        Компания <strong>MAR Solutions</strong> разрабатывает программные решения
+        для мониторинга рынка, выявления аномалий и предотвращения схем финансовых злоупотреблений.
+        Мы помогаем банкам и регуляторам обеспечивать контроль операций, соответствие требованиям и безопасность данных.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-6">
+        <a href="#contact" class="btn btn-primary btn-active">Связаться</a>
+        <a href="#learn" class="btn btn-active">Узнать больше</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ===== CLIENTS (Marquee) ===== -->
+  <section class="container-xy clients-overlap">
+    <div class="glass angled p-6 md:p-8 reveal moreBlur">
+      <h2 class="mb-2">Наши клиенты</h2>
+      <div class="muted mb-6 text-sm">Крупнейшие банки и финтех-компании</div>
+
+      <div class="marquee py-4">
+        <div class="marquee-track">
+          <img src="https://placehold.co/180x44/0b1f0b/9ef39e?text=%D0%A1%D0%91%D0%95%D0%A0+%D0%91%D0%90%D0%9D%D0%9A" alt="Сбер Банк" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="Альфа Банк" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/1a1711/ffe08a?text=%D0%A2+%D0%91%D0%90%D0%9D%D0%9A" alt="Т Банк" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="Альфа Банк" class="h-11 w-auto" />
+          <!-- duplicate for seamless -->
+          <img src="https://placehold.co/180x44/0b1f0b/9ef39e?text=%D0%A1%D0%91%D0%95%D0%A0+%D0%91%D0%90%D0%9D%D0%9A" alt="" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/1a1711/ffe08a?text=%D0%A2+%D0%91%D0%90%D0%9D%D0%9A" alt="" class="h-11 w-auto" />
+          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="" class="h-11 w-auto" />
+        </div>
+      </div>
+    </div>
+  </section>
 </section>
 <!-- ===== EXPERTISE ===== -->
 <section class="container-xy py-6" id="expertise">
