@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
   <title>MAR SOLUTIONS — Финансовый мониторинг</title>
+  <link rel="shortcut icon" href="img/Logo_Mar_solutions.png" type="image/x-icon">
 
   <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,6 +27,12 @@
   <link rel="stylesheet" href="css/main.css" />
 </head>
 <body class="grid-bg">
+    <!-- Лоадер -->
+  <div id="preloader">
+    <!-- два лого, показываем одно в зависимости от темы -->
+    <img src="img/logo-dark.svg" alt="Logo Dark" class="logo dark" />
+    <img src="img/logo-light.svg" alt="Logo Light" class="logo light" />
+  </div>
 
   <div class="bg-mesh"></div>
   <canvas id="bg-particles" aria-hidden="true"></canvas>
@@ -35,8 +42,8 @@
     <div class="container-xy">
       <div class="flex items-stretch justify-between gap-4">
         <div class="flex items-center gap-6 py-3">
-          <a href="#" class="font-mono text-sm tracking-widest px-2 py-1 border border-[var(--line)]">
-            MAR <span class="muted">SOLUTIONS</span>
+          <a href="#" class="menu-logo">
+            <img src="img/logo-dark.svg" alt="">
           </a>
           <!-- Desktop nav -->
           <nav class="hidden lg:flex items-center gap-6 text-sm">
@@ -396,5 +403,6 @@
 
   <!-- Scripts -->
   <script defer src="js/script.js"></script>
+  <script src="js/loader.js"></script>
 </body>
 </html>

@@ -1,3 +1,49 @@
+/* Прелоадер покрывает всё окно */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg, #0a0d12); /* фон как у темы */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Логотипы */
+#preloader .logo {
+  width: 140px;
+  height: auto;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .4s ease;
+}
+
+/* По умолчанию тёмное */
+#preloader .logo.dark { opacity: 1; }
+
+/* Если тема светлая — включаем светлое */
+@media (prefers-color-scheme: light){
+  #preloader { background: #f6f7fb; }
+  #preloader .logo.dark { opacity: 0; }
+  #preloader .logo.light { opacity: 1; }
+}
+
+/* Лёгкая анимация (пульс) */
+#preloader .logo {
+  animation: pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.06); opacity: .85; }
+}
+
 /* ================= THEME (auto) ================= */
 html { color-scheme: dark light; }
 :root{
@@ -25,7 +71,15 @@ html { color-scheme: dark light; }
   --content-left: max(var(--container-pad),
                      calc((100vw - var(--container-max)) / 2 + var(--container-pad)));
 }
-
+.menu-logo{
+  width: 20%;
+}
+.menu-logo>img{ 
+  width: 100%;
+}
+nav{
+  margin-left: 5%;
+}
 /* ===== Masthead: background image + overlayed text ===== */
 .masthead {
   position: relative;
@@ -167,6 +221,9 @@ section.container-xy.clients-overlap{ position: relative; z-index: 5; transform:
   pointer-events:none;        /* не блокирует клики */
   z-index: 3;                 /* поверх контента карточки */
 }
+.glass.angled img {
+  clip-path: inherit;
+}
 
 /* На всякий случай убедимся, что карточка — контейнер для абсолютки */
 .glass.angled{ position: relative; }
@@ -192,7 +249,7 @@ transition: 0.3s;}
     color:rgb(202, 202, 202) ;
 }
 /* ===== Sticky nav ===== */
-#siteHeader{ position: sticky; top:0; z-index:40; will-change:transform, background; transition: transform .24s ease, background-color .24s ease, box-shadow .24s ease; background: rgba(10,13,18,.88); border-bottom:1px solid rgba(0,0,0,.25); color:#fff; backdrop-filter: blur(8px) saturate(1.05); }
+#siteHeader{ position: sticky; top:0; z-index:40; will-change:transform, background; transition: transform .24s ease, background-color .24s ease, box-shadow .24s ease; background: rgb(79 79 79 / 71%);border-bottom:1px solid rgba(0,0,0,.25); color:#fff; backdrop-filter: blur(8px) saturate(1.05); }
 #siteHeader.nav-hidden{ transform: translateY(-100%); }
 #siteHeader a{ color:#fff; }
 #siteHeader a:hover{ color: var(--accent); }

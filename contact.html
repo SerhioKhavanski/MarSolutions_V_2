@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="dark light" name="color-scheme"/>
+<title>Контакты — MAR SOLUTIONS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="css/main.css" rel="stylesheet"/>
+</head>
+<body class="grid-bg">
+<div class="bg-mesh"></div>
+<canvas aria-hidden="true" id="bg-particles"></canvas>
+<!-- ===== HEADER ===== -->
+<header class="reveal" id="siteHeader">
+<div class="container-xy">
+<div class="flex items-stretch justify-between gap-4">
+<div class="flex items-center gap-6 py-3">
+<a class="font-mono text-sm tracking-widest px-2 py-1 border border-[var(--line)]" href="index.html">
+          MAR <span class="muted">SOLUTIONS</span>
+</a>
+<!-- DESKTOP NAV (>= lg) -->
+<nav class="hidden lg:flex items-center gap-6 text-sm">
+<a class="hover:text-[var(--accent)]" href="index.html">Главная</a>
+<a class="hover:text-[var(--accent)]" href="about.html">О нас</a>
+<a class="hover:text-[var(--accent)]" href="products.html">Наши продукты</a>
+<a class="hover:text-[var(--accent)]" href="resources.html">Ресурсы</a>
+<a class="hover:text-[var(--accent)]" href="contact.html">Контакты</a>
+</nav>
+</div>
+<div class="flex items-center gap-2 py-2">
+<input class="input w-40 md:w-64" placeholder="Поиск…"/>
+<a class="btn ml-2 hidden sm:inline-flex" href="contact.html">Войти</a>
+<!-- MOBILE BUTTON (< lg) -->
+<button aria-controls="mobileNav" aria-expanded="false" class="btn chip lg:hidden ml-2" id="navToggle" type="button">
+          Меню
+        </button>
+</div>
+</div>
+<!-- MOBILE PANEL (< lg) -->
+<nav class="lg:hidden" hidden="" id="mobileNav">
+<div class="mobile-nav glass angled">
+<a class="mobile-link" href="index.html">Главная</a>
+<a class="mobile-link" href="about.html">О нас</a>
+<a class="mobile-link" href="products.html">Наши продукты</a>
+<a class="mobile-link" href="resources.html">Ресурсы</a>
+<a class="mobile-link" href="contact.html">Контакты</a>
+<a class="mobile-link sm:hidden" href="contact.html">Войти</a>
+</div>
+</nav>
+</div>
+</header>
+<section class="masthead reveal masthead--bare s-6a5072d9" id="masthead">
+<div class="container-xy">
+<div class="copy glass angled p-6 md:p-10">
+<h1>Свяжитесь с нами</h1>
+<p class="muted mt-4 max-w-prose">Ответим на вопросы, покажем демо и подскажем, как лучше интегрировать решения.</p>
+</div>
+</div>
+</section>
+<section class="container-xy py-12">
+<div class="glass angled p-6 md:p-8 reveal max-w-3xl mx-auto">
+<h2 class="mb-4">Напишите нам</h2>
+<form class="grid gap-4">
+<label class="grid gap-2">
+<span>Имя</span>
+<input class="input" placeholder="Введите ваше имя"/>
+</label>
+<label class="grid gap-2">
+<span>Email</span>
+<input class="input" placeholder="Введите ваш Email"/>
+</label>
+<label class="grid gap-2">
+<span>Номер телефона</span>
+<input class="input" placeholder="Введите ваш номер телефона"/>
+</label>
+<label class="grid gap-2">
+<span>Ваше сообщение</span>
+<textarea class="input min-h-[160px]" placeholder="Введите текст вашего сообщения"></textarea>
+</label>
+<label class="flex items-center gap-3 text-sm">
+<input class="accent-[var(--accent)] s-fc5aba7a" type="checkbox"/>
+<span>Даю согласие на обработку персональных данных</span>
+</label>
+<div class="pt-2"><button class="btn btn-primary">Заказать</button></div>
+</form>
+</div>
+</section>
+<!-- ===== FOOTER ===== -->
+<footer class="glass angled mt-10 reveal">
+<div class="container-xy py-10">
+<div class="grid md:grid-cols-5 gap-10">
+<div class="md:col-span-2">
+<div class="font-mono text-sm tracking-widest inline-block px-2 py-1 border border-[var(--line)] mb-4">
+            MAR <span class="muted">SOLUTIONS</span>
+</div>
+<p class="muted">
+            MAR SOLUTIONS — платформа мониторинга и анализа рыночных данных.
+            Мы помогаем выявлять манипуляции, предотвращать мошенничество и обеспечивать соответствие требованиям.
+          </p>
+<div class="flex gap-2 mt-4">
+<a class="btn chip" href="#">LinkedIn</a>
+<a class="btn chip" href="#">GitHub</a>
+<a class="btn chip" href="#">Email</a>
+</div>
+</div>
+<div class="text-sm">
+<h3 class="mb-2">Заголовок</h3>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">Новости</a>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">Карьера</a>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">Документы</a>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">Конфиденциальность</a>
+</div>
+<div class="text-sm">
+<h3 class="mb-2">Заголовок</h3>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">Наши решения</a>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">Партнёры</a>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">Поддержка</a>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">Контакты</a>
+</div>
+<div class="text-sm">
+<h3 class="mb-2">Заголовок</h3>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">Блог</a>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">События</a>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">Команда</a>
+<a class="block py-1 muted hover:text-[var(--accent)]" href="#">Ресурсы</a>
+</div>
+</div>
+<div class="rule my-8"></div>
+<div class="text-xs muted">© MAR Solutions. Все права защищены.</div>
+</div>
+</footer>
+<script src="js/script.js"></script>
+<script defer="True" src="contact.js"></script><script defer="True" src="main.js"></script></body>
+</html>
