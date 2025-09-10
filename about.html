@@ -8,10 +8,17 @@
 <!-- Tailwind CSS (CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-
+<link rel="stylesheet" href="css/about.css">
 <link href="CSS/main.css" rel="stylesheet"/>
-<link rel="stylesheet" href="main.css"></head>
+
+</head>
 <body class="grid-bg">
+      <!-- Лоадер -->
+  <div id="preloader">
+    <!-- два лого, показываем одно в зависимости от темы -->
+    <img src="img/logo-dark.svg" alt="Logo Dark" class="logo dark" />
+    <img src="img/logo-light.svg" alt="Logo Light" class="logo light" />
+  </div>
 <!-- Ambient background -->
 <div class="bg-mesh"></div>
   <header id="siteHeader" class="reveal">
@@ -54,12 +61,8 @@
   </header>
 
   <!-- ===== MASTHEAD (Hero) ===== -->
-<section id="masthead" class="masthead reveal">
+<section id="masthead" class="masthead reveal mastheadAbout">
   <!-- Фоновое видео -->
-  <video class="masthead-video" autoplay muted loop playsinline>
-    <source src="img/hero_video.mp4" type="video/mp4" />
-    Ваш браузер не поддерживает видеофон.
-  </video>
 
   <div class="container-xy">
     <div class="copy glass angled p-6 md:p-10 moreBlur">
@@ -77,36 +80,17 @@
   </div>
 </section>
 
-  <!-- ===== CLIENTS (Marquee) ===== -->
-  <section class="container-xy clients-overlap">
+  <!-- ===== EXPERTISE ===== -->
+  <section class="container-xy expertise">
     <div class="glass angled p-6 md:p-8 reveal moreBlur">
-      <h2 class="mb-2">Наши клиенты</h2>
-      <div class="muted mb-6 text-sm">Крупнейшие банки и финтех-компании</div>
+      <h2 class="mb-4">Экспертиза</h2>
+
 
       <div class="marquee py-4">
-        <div class="marquee-track">
-          <img src="https://placehold.co/180x44/0b1f0b/9ef39e?text=%D0%A1%D0%91%D0%95%D0%A0+%D0%91%D0%90%D0%9D%D0%9A" alt="Сбер Банк" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="Альфа Банк" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/1a1711/ffe08a?text=%D0%A2+%D0%91%D0%90%D0%9D%D0%9A" alt="Т Банк" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="Альфа Банк" class="h-11 w-auto" />
-          <!-- duplicate for seamless -->
-          <img src="https://placehold.co/180x44/0b1f0b/9ef39e?text=%D0%A1%D0%91%D0%95%D0%A0+%D0%91%D0%90%D0%9D%D0%9A" alt="" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/1a1711/ffe08a?text=%D0%A2+%D0%91%D0%90%D0%9D%D0%9A" alt="" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="" class="h-11 w-auto" />
-        </div>
-      </div>
-    </div>
-  </section>
-</section>
-<!-- ===== EXPERTISE ===== -->
-<section class="container-xy py-6" id="expertise">
-<h2 class="mb-4">Экспертиза</h2>
-<div class="glass angled p-6 md:p-8 reveal">
-<div class="expert-grid">
+        <div class="expert-grid">
 <!-- Big visual block -->
-<div class="glass angled p-0">
-<img alt="Иллюстрация аналитики" class="w-full h-full object-cover" src="https://placehold.co/900x520/0b1020/ffffff?text=ANALYTICS+ILLUSTRATION"/>
+<div class="p-0">
+  <img alt="Иллюстрация аналитики" class="w-full h-full object-cover" src="img/Group 153.svg"/>
 </div>
 <!-- 4 cards -->
 <div class="grid gap-6">
@@ -150,8 +134,12 @@
 </article>
 </div>
 </div>
-</div>
+      </div>
+    </div>
+  </section>
 </section>
+
+
 <!-- ===== VISION ===== -->
 <section class="container-xy py-10" id="vision">
 <div class="grid lg:grid-cols-2 gap-6 items-stretch">
@@ -371,5 +359,8 @@
 </footer>
 <!-- ================= INTERACTIVITY ================= -->
 
-<script defer="True" src="about.js"></script><script defer="True" src="main.js"></script></body>
+  <script src="js/stroke.js" ></script>
+  <script src="js/loader.js"></script>
+  <script src="js/script.js"></script>
+</body>
 </html>

@@ -1,1 +1,0 @@
-tailwind.config={theme:{extend:{fontFamily:{ui:["Inter","system-ui","Segoe UI","Roboto","Arial","sans-serif"],mono:["ui-monospace","SFMono-Regular","Menlo","Consolas","monospace"]},screens:{xs:"420px"}}}};

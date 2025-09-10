@@ -1,0 +1,13 @@
+
+/* ===== ABOUT PAGE SPECIFICS ===== */
+.expert-grid{ display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:24px; }
+
+@media (max-width:1024px){ .expert-grid{ grid-template-columns: 1fr; } }
+/* Timeline */
+  .timeline-wrap{ position:relative; }
+  .timeline-line{ position:absolute; left:50%; top:0; bottom:0; width:2px; background:var(--line); transform:translateX(-50%); }
+  .timeline-grid{ display:grid; gap:24px 24px; }
+@media (min-width: 1024px){
+    .timeline-grid{ grid-template-columns: 1fr 28px 1fr; }
+  }
+.timeline-marker{ width:18px; height:18px; background:var(--accent); box-shadow:0 0 0 2px rgba(0,0,0,.2); }

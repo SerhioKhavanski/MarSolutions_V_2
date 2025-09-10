@@ -296,6 +296,9 @@ h3{ font-size: clamp(var(--h3-min), var(--h3-vw), var(--h3-max)) !important; lin
 /* ===== Reveal on scroll ===== */
 .reveal{ opacity:0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
 .is-visible{ opacity:1; transform: translateY(0); }
+.mastheadAbout{
+  background-image: url(../img/aboutHero.png);
+}
 @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; } }
 
 /* ===== Performance helpers ===== */
