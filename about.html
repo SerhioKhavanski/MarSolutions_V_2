@@ -8,8 +8,9 @@
 <!-- Tailwind CSS (CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<link rel="stylesheet" href="css/about.css">
+
 <link href="CSS/main.css" rel="stylesheet"/>
+<link rel="stylesheet" href="css/about.css">
 
 </head>
 <body class="grid-bg">
@@ -34,7 +35,7 @@
             <a href="about.html" class="hover:text-[var(--accent)]">О нас</a>
             <a href="" class="hover:text-[var(--accent)]">Наши продукты</a>
             <a href="" class="hover:text-[var(--accent)]">Ресурсы</a>
-            <a href="" class="hover:text-[var(--accent)]">Контакты</a>
+            <a href="#footer" class="hover:text-[var(--accent)]">Контакты</a>
           </nav>
         </div>
         <div class="flex items-center gap-2 py-2">
@@ -141,29 +142,44 @@
 
 
 <!-- ===== VISION ===== -->
-<section class="container-xy py-10" id="vision">
-<div class="grid lg:grid-cols-2 gap-6 items-stretch">
-<figure class="glass angled p-0 order-2 lg:order-1 reveal">
-<img alt="Наше видение" class="w-full h-full object-cover" src="https://placehold.co/1200x700/111827/ffffff?text=VISION+PHOTO">
-</img></figure>
-<div class="order-1 lg:order-2">
-<div class="glass angled p-6 md:p-8 reveal">
-<h2 class="mb-2">Наше видение</h2>
-<p class="muted">
-            Связывайтесь с нами, если у вас есть вопросы, предложения или сложные кейсы.
-            Мы внимательно относимся к обратной связи и строим решения, чтобы можно было быстрее
-            выявлять нетипичные операции и открывать данные для проверки.
-          </p>
-<a class="btn btn-primary mt-5" href="#contact">Связаться</a>
+<div class="pc-wrapper">
+  <div class="contact-us">
+       <div class="glass angled p-6 md:p-8 reveal contact-us-box">
+        <h2 class="mb-2">Наше видение</h2>
+        <p class="muted">
+          Связывайтесь с нами, если у вас есть вопросы, предложения или сложные кейсы.
+              Мы внимательно относимся к обратной связи и строим решения, чтобы можно было быстрее
+              выявлять нетипичные операции и открывать данные для проверки.
+        </p>
+        <a href="contact.html" class="btn btn-primary mt-6">Задать вопрос</a>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="tablet-mobile-wrapper">
+  <section id="contact" class="container-xy py-10">
+    <div class="grid lg:grid-cols-2 gap-6 items-stretch">
+      <figure class="glass angled p-0 reveal">
+        <img src="img/Без имени-1 1.png" alt="Контакт" class="w-full h-full object-cover" />
+      </figure>
+      <div class="glass angled p-6 md:p-8 reveal">
+        <h2 class="mb-2">Наше видение</h2>
+        <p class="muted">
+          Связывайтесь с нами, если у вас есть вопросы, предложения или сложные кейсы.
+              Мы внимательно относимся к обратной связи и строим решения, чтобы можно было быстрее
+              выявлять нетипичные операции и открывать данные для проверки.
+        </p>
+        <a href="contact.html" class="btn btn-primary mt-6">Задать вопрос</a>
+      </div>
+    </div>
+  </section>
 </div>
-</div>
-</section>
 <!-- ===== HISTORY (timeline) ===== -->
 <section class="container-xy py-12" id="history">
 <h2 class="text-center mb-8">Наша история</h2>
 <div class="timeline-wrap reveal">
-<div class="timeline-line"></div>
+<div class="timeline-line color-line"></div>
 <div class="timeline-grid">
 <!-- Row 1 (left) -->
 <div class="glass angled p-0">
@@ -314,7 +330,7 @@
 </div>
 </section>
 <!-- ===== FOOTER ===== -->
-<footer class="glass angled mt-10 reveal">
+<footer class="glass angled mt-10 reveal" id="footer">
 <div class="container-xy py-10">
 <div class="grid md:grid-cols-5 gap-10">
 <div class="md:col-span-2">

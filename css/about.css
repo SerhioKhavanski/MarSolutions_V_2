@@ -14,3 +14,9 @@
 .expertise{
   bottom: 5rem;
 }
+.color-line{
+  background-color:var(--accent);
+}
+.contact-us{
+    background:linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.815) 30%, rgba(0, 0, 0, 0.624) 60%, rgba(0, 0, 0, 0) 100%) ,url(../img/Без\ имени-1\ 1.png);
+}

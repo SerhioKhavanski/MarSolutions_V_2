@@ -51,7 +51,7 @@
             <a href="about.html" class="hover:text-[var(--accent)]">О нас</a>
             <a href="" class="hover:text-[var(--accent)]">Наши продукты</a>
             <a href="" class="hover:text-[var(--accent)]">Ресурсы</a>
-            <a href="" class="hover:text-[var(--accent)]">Контакты</a>
+            <a href="#footer" class="hover:text-[var(--accent)]">Контакты</a>
           </nav>
         </div>
         <div class="flex items-center gap-2 py-2">
@@ -94,7 +94,7 @@
         Мы помогаем банкам и регуляторам обеспечивать контроль операций, соответствие требованиям и безопасность данных.
       </p>
       <div class="flex flex-wrap gap-3 mt-6">
-        <a href="#contact" class="btn btn-primary btn-active">Связаться</a>
+        <a href="contact.html" class="btn btn-primary btn-active">Связаться</a>
         <a href="#learn" class="btn btn-active">Узнать больше</a>
       </div>
     </div>
@@ -278,21 +278,39 @@
   </section>
 
   <!-- ===== CTA ===== -->
+<div class="pc-wrapper">
+  <div class="contact-us">
+       <div class="glass angled p-6 md:p-8 reveal contact-us-box">
+        <h2 class="mb-2">Хотите обсудить детали ?</h2>
+        <p class="muted">
+          Связывайтесь с нами, если у вас есть вопросы, предложения или сложные кейсы.
+              Мы внимательно относимся к обратной связи и строим решения, чтобы можно было быстрее
+              выявлять нетипичные операции и открывать данные для проверки.
+        </p>
+        <a href="contact.html" class="btn btn-primary mt-6">Задать вопрос</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tablet-mobile-wrapper">
   <section id="contact" class="container-xy py-10">
     <div class="grid lg:grid-cols-2 gap-6 items-stretch">
-      <div class="glass angled p-6 md:p-8 reveal">
-        <h2 class="mb-2">Хотите обсудить детали?</h2>
-        <p class="muted max-w-prose">
-          Оставьте заявку — мы свяжемся с вами, чтобы обсудить задачи и показать демо.
-          Расскажем о внедрении, сроках и типовых сценариях использования.
-        </p>
-        <a href="#" class="btn btn-primary mt-6">Задать вопрос</a>
-      </div>
       <figure class="glass angled p-0 reveal">
         <img src="img/call.png" alt="Контакт" class="w-full h-full object-cover" />
       </figure>
+      <div class="glass angled p-6 md:p-8 reveal">
+        <h2 class="mb-2">Наше видение</h2>
+        <p class="muted">
+          Связывайтесь с нами, если у вас есть вопросы, предложения или сложные кейсы.
+              Мы внимательно относимся к обратной связи и строим решения, чтобы можно было быстрее
+              выявлять нетипичные операции и открывать данные для проверки.
+        </p>
+        <a href="contact.html" class="btn btn-primary mt-6">Задать вопрос</a>
+      </div>
     </div>
   </section>
+</div>
 
   <!-- ===== NEWS ===== -->
   <section id="learn" class="container-xy py-12">
@@ -350,13 +368,15 @@
               <a href="#" class="btn mt-4">Узнать больше</a>
             </div>
           </article>
+
         </div>
+        <a href="#" class="btn w-full new-button">Показать больше</a>
       </div>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="glass angled mt-10 reveal">
+  <footer class="glass angled mt-10 reveal" id="footer">
     <div class="container-xy py-10">
       <div class="grid md:grid-cols-5 gap-10">
         <div class="md:col-span-2">
