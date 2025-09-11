@@ -1,7 +1,28 @@
 
+.headExpCrd{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headExpCrd>img{
+  width: 20%;
+  margin-right: 4%;
+}
 /* ===== ABOUT PAGE SPECIFICS ===== */
 .expert-grid{ display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:24px; }
-
+.ExpItem{
+  padding-bottom: 2rem;
+}
+.ExpItem-wrapper{
+  position: relative;
+}
+.glass-img{
+  position: absolute;
+  background-color: var(--bg);
+  width: fit-content;
+  padding: 5%;
+  z-index: 4;
+}
 @media (max-width:1024px){ .expert-grid{ grid-template-columns: 1fr; } }
 /* Timeline */
   .timeline-wrap{ position:relative; }
@@ -19,4 +40,7 @@
 }
 .contact-us{
     background:linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.815) 30%, rgba(0, 0, 0, 0.624) 60%, rgba(0, 0, 0, 0) 100%) ,url(../img/Без\ имени-1\ 1.png);
+}
+.without-border{
+  border: none;
 }
