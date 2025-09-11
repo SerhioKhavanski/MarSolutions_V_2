@@ -1,0 +1,27 @@
+.mastheadAbout{
+  background-image: url(../img/aboutHero.png);
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+.why-card img{
+    width: 20%;
+}
+.why-card{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+#why .why-grid{
+  display:grid;
+  grid-template-columns: minmax(560px, 1.1fr) minmax(420px, 1fr);
+  gap: 2.5rem;
+}
+#why .why-left img{ display:block; width:100%; height:547px; object-fit:cover; }
+@media (max-width: 1100px){
+  #why .why-grid{ grid-template-columns: 1fr; }
+  #why .why-right{ grid-template-columns: 1fr; }
+  .why-card img{
+    width: 8%;
+}
+}
+

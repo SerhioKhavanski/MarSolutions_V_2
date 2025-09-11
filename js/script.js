@@ -243,3 +243,9 @@ makeSlider('#reviews', { perView:{ mobile:1, tablet:2, desktop:3 }, dots:true })
   requestAnimationFrame(meter);
 })();
 
+/* Initialize known sliders if present */
+document.addEventListener('DOMContentLoaded', function(){
+  makeSlider('#works',   { perView:{ mobile:1, tablet:1, desktop:1 }, dots:true });
+  makeSlider('#reviews', { perView:{ mobile:1, tablet:2, desktop:3 }, dots:true });
+  makeSlider('#awards',  { perView:{ mobile:1, tablet:2, desktop:3 }, dots:true });
+});

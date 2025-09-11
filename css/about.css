@@ -1,4 +1,8 @@
-
+.mastheadAbout{
+  background-image: url(../img/aboutHero.png);
+  background-repeat:no-repeat;
+  background-size:cover;
+}
 .headExpCrd>img{
   width: 20%;
   margin-right: 4%;
@@ -14,13 +18,28 @@
 }
 .glass-img{
   position: absolute;
-  background-color: var(--bg);
+  background-color: rgb(16 20 28);
   width: fit-content;
   padding: 5%;
   z-index: 4;
   left: 9.8%;
   top: 85%;
-  box-shadow: 0 0 10px#2c4ef941;
+  box-shadow: 0 0 5px#2c4ef941;
+}
+.glass-img>img{
+  width: 100%;
+}
+.cultureCard-wrapper{
+  position: relative;
+}
+.widthControl{
+  width: 90%;
+}
+.culture-img{
+  padding: 2%;
+  width: 80px;
+  left: 4%;
+  top: 17%;
 }
 @media (max-width:1024px){ .expert-grid{ grid-template-columns: 1fr; } }
 /* Timeline */
@@ -39,6 +58,8 @@
 }
 .contact-us{
     background:linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.815) 30%, rgba(0, 0, 0, 0.624) 60%, rgba(0, 0, 0, 0) 100%) ,url(../img/Без\ имени-1\ 1.png);
+    background-size:cover ;
+    background-repeat: repeat;
 }
 .without-border{
   border: none;
@@ -54,4 +75,16 @@
   .ExpItem-wrapper{
     margin-bottom: 2rem;
   }
+  .widthControl{
+    width: 100%;
+  }
+  .expertise {
+    bottom: 2rem;
+}
+.tablet-mobile-wrapper{
+  display: none;
+}
+.culture-img{
+  position: static;
+}
 }

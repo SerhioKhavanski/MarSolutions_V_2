@@ -6,6 +6,7 @@
   <meta name="color-scheme" content="dark light">
   <title>MAR SOLUTIONS — Финансовый мониторинг</title>
   <link rel="shortcut icon" href="img/Logo_Mar_solutions.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/ourProducts.css">
 
   <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,21 +24,17 @@
     }
   </script>
 
-
   <link rel="stylesheet" href="css/main.css" />
 </head>
 <body class="grid-bg">
-    <!-- Лоадер -->
+      <!-- Лоадер -->
   <div id="preloader">
     <!-- два лого, показываем одно в зависимости от темы -->
     <img src="img/logo-dark.svg" alt="Logo Dark" class="logo dark" />
     <img src="img/logo-light.svg" alt="Logo Light" class="logo light" />
   </div>
-
-  <div class="bg-mesh"></div>
-  <canvas id="bg-particles" aria-hidden="true"></canvas>
-
-  <!-- ===== HEADER ===== -->
+<!-- Ambient background -->
+<div class="bg-mesh"></div>
   <header id="siteHeader" class="reveal">
     <div class="container-xy">
       <div class="flex items-stretch justify-between gap-4">
@@ -78,12 +75,8 @@
   </header>
 
   <!-- ===== MASTHEAD (Hero) ===== -->
-<section id="masthead" class="masthead reveal">
+<section id="masthead" class="masthead reveal mastheadAbout">
   <!-- Фоновое видео -->
-  <video class="masthead-video" autoplay muted loop playsinline>
-    <source src="img/hero_video.mp4" type="video/mp4" />
-    Ваш браузер не поддерживает видеофон.
-  </video>
 
   <div class="container-xy">
     <div class="copy glass angled p-6 md:p-10 moreBlur">
@@ -94,36 +87,92 @@
         Мы помогаем банкам и регуляторам обеспечивать контроль операций, соответствие требованиям и безопасность данных.
       </p>
       <div class="flex flex-wrap gap-3 mt-6">
-        <a href="contact.html" class="btn btn-primary btn-active">Связаться</a>
+        <a href="#contact" class="btn btn-primary btn-active">Связаться</a>
         <a href="#learn" class="btn btn-active">Узнать больше</a>
       </div>
     </div>
   </div>
 </section>
 
-  <!-- ===== CLIENTS (Marquee) ===== -->
-  <section class="container-xy clients-overlap">
-    <div class="glass angled p-6 md:p-8 reveal moreBlur">
-      <h2 class="mb-2">Наши клиенты</h2>
-      <div class="muted mb-6 text-sm">Крупнейшие банки и финтех-компании</div>
+  <!-- WHY: Инженерия доверия -->
+<section id="why" class="container-xy py-10">
+  <!-- верхний двухколоночный грид -->
+  <div class="why-grid items-start gap-10">
 
-      <div class="marquee py-4">
-        <div class="marquee-track">
-          <img src="https://placehold.co/180x44/0b1f0b/9ef39e?text=%D0%A1%D0%91%D0%95%D0%A0+%D0%91%D0%90%D0%9D%D0%9A" alt="Сбер Банк" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="Альфа Банк" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/1a1711/ffe08a?text=%D0%A2+%D0%91%D0%90%D0%9D%D0%9A" alt="Т Банк" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="Альфа Банк" class="h-11 w-auto" />
-          <!-- duplicate for seamless -->
-          <img src="https://placehold.co/180x44/0b1f0b/9ef39e?text=%D0%A1%D0%91%D0%95%D0%A0+%D0%91%D0%90%D0%9D%D0%9A" alt="" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/1a1711/ffe08a?text=%D0%A2+%D0%91%D0%90%D0%9D%D0%9A" alt="" class="h-11 w-auto" />
-          <img src="https://placehold.co/180x44/330000/f87171?text=%D0%90%D0%BB%D1%8C%D1%84%D0%B0+%D0%91%D0%B0%D0%BD%D0%BA" alt="" class="h-11 w-auto" />
-        </div>
-      </div>
+    <!-- Левая колонка: краткий ввод + большое изображение -->
+    <div class="why-left">
+      <h2 class="mb-2">Почему мы</h2>
+      <p class="muted mb-6 text-sm max-w-[46ch]">          
+        Мы архитекторы цифровой безопасности. Мы строим мир,
+        где доверие масштабируемо, а риски — управляемы.
+      </p>
+
+      <figure class="glass angled p-0 reveal">
+        <!-- замените путь на свой (из вашего ассета Rectangle 413.png) -->
+        <img src="img/Rectangle413.png">
+      </figure>
     </div>
-  </section>
 
-  <!-- ===== SOLUTIONS ===== -->
+    <!-- Правая колонка: сетка из 4 карточек 2×2 -->
+    <div class="why-right grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- карточка 1 -->
+      <article class="glass angled p-5 why-card">
+          <div class="glass-img">
+            <img src="img/Combo Chart.png" alt="">
+          </div>
+
+          <h3 class="mb-1">Инженерия доверия</h3>
+          <p class="muted text-sm">          Мы не просто создаём системы — мы проектируем архитектуру,
+          где каждая строка кода служит фундаментом цифровой безопасности.
+          Наши решения масштабируемы, адаптируемы и способны защищать как стартапы,
+          так и крупные корпорации.</p>
+      </article>
+
+
+      <!-- карточка 2 -->
+      <article class="glass angled p-5 why-card">
+          <div class="glass-img">
+            <img src="img/Combo Chart.png" alt="">
+          </div>
+
+          <h3 class="mb-1">Инженерия доверия</h3>
+          <p class="muted text-sm">          Мы не просто создаём системы — мы проектируем архитектуру,
+          где каждая строка кода служит фундаментом цифровой безопасности.
+          Наши решения масштабируемы, адаптируемы и способны защищать как стартапы,
+          так и крупные корпорации.</p>
+      </article>
+
+      <!-- карточка 3 -->
+      <article class="glass angled p-5 why-card">
+          <div class="glass-img">
+            <img src="img/Combo Chart.png" alt="">
+          </div>
+
+          <h3 class="mb-1">Инженерия доверия</h3>
+          <p class="muted text-sm">          Мы не просто создаём системы — мы проектируем архитектуру,
+          где каждая строка кода служит фундаментом цифровой безопасности.
+          Наши решения масштабируемы, адаптируемы и способны защищать как стартапы,
+          так и крупные корпорации.</p>
+      </article>
+
+      <!-- карточка 4 -->
+      <article class="glass angled p-5 why-card">
+          <div class="glass-img">
+            <img src="img/Combo Chart.png" alt="">
+          </div>
+
+          <h3 class="mb-1">Инженерия доверия</h3>
+          <p class="muted text-sm">          Мы не просто создаём системы — мы проектируем архитектуру,
+          где каждая строка кода служит фундаментом цифровой безопасности.
+          Наши решения масштабируемы, адаптируемы и способны защищать как стартапы,
+          так и крупные корпорации.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+ <!-- ===== SOLUTIONS ===== -->
   <section id="solutions" class="container-xy py-12">
     <h2 class="mb-6">Решения</h2>
 
@@ -172,60 +221,29 @@
     </div>
   </section>
 
-  <!-- ===== OUR WORKS (Slider + dots) ===== -->
-  <section id="projects" class="container-xy py-8">
-    <div class="glass angled p-6 md:p-8 reveal">
+ <!-- ===== Rewards ===== -->
+<section class="container-xy py-10">
+    <div class="glass angled p-6 md:p-8">
       <div class="flex items-center justify-between mb-4">
-        <h2>Наши работы</h2>
+        <h2>Наши награды</h2>
         <div class="flex items-center gap-2">
-          <button class="btn chip" data-target="#works" data-prev>Prev</button>
-          <button class="btn chip" data-target="#works" data-next>Next</button>
+          <button class="btn chip" data-target="#awards" data-prev>Prev</button>
+          <button class="btn chip" data-target="#awards" data-next>Next</button>
         </div>
       </div>
-
-      <div id="works" class="slider">
-
+      <div id="awards" class="slider">
         <div class="slider-track">
-          <div class="slide grid lg:grid-cols-2 gap-6 p-1">
-            <figure class="glass angled p-0">
-              <img src="https://placehold.co/1200x700/0b1020/ffffff?text=Chart+%231" alt="Скриншот графика 1" class="w-full h-full object-cover" />
-            </figure>
-            <div class="glass angled p-6">
-              <div class="chip mb-4">MARTA</div>
-              <p class="muted">Непрерывное исследование транзакций, граф связей и алертинг с пояснениями для аудита.</p>
-              <a href="#" class="btn btn-primary mt-4">Подробнее</a>
-            </div>
-          </div>
-
-          <div class="slide grid lg:grid-cols-2 gap-6 p-1">
-            <figure class="glass angled p-0">
-              <img src="https://placehold.co/1200x700/0b1020/ffffff?text=Chart+%232" alt="Скриншот графика 2" class="w-full h-full object-cover" />
-            </figure>
-            <div class="glass angled p-6">
-              <div class="chip mb-4">MARTA</div>
-              <p class="muted">Дефектоскопия «pump &amp; dump»; сочетание правил и ML-факторов снизило ложные срабатывания на 37%.</p>
-              <a href="#" class="btn btn-primary mt-4">Подробнее</a>
-            </div>
-          </div>
-
-          <div class="slide grid lg:grid-cols-2 gap-6 p-1">
-            <figure class="glass angled p-0">
-              <img src="https://placehold.co/1200x700/0b1020/ffffff?text=Chart+%233" alt="Скриншот графика 3" class="w-full h-full object-cover" />
-            </figure>
-            <div class="glass angled p-6">
-              <div class="chip mb-4">MARTA</div>
-              <p class="muted">Визуализация цепочек сделок и графов отношений для ускоренного расследования.</p>
-              <a href="#" class="btn btn-primary mt-4">Подробнее</a>
-            </div>
-          </div>
+          <div class="slide p-2"><div class="card-award"><img src="https://placehold.co/800x520/0b1020/ffffff?text=Certificate+1" class="w-full h-64 object-cover" alt=""></div></div>
+          <div class="slide p-2"><div class="card-award"><img src="https://placehold.co/800x520/0b1020/ffffff?text=Certificate+2" class="w-full h-64 object-cover" alt=""></div></div>
+          <div class="slide p-2"><div class="card-award"><img src="https://placehold.co/800x520/0b1020/ffffff?text=Certificate+3" class="w-full h-64 object-cover" alt=""></div></div>
+          <div class="slide p-2"><div class="card-award"><img src="https://placehold.co/800x520/0b1020/ffffff?text=Certificate+4" class="w-full h-64 object-cover" alt=""></div></div>
         </div>
-
-        <div class="slider-dots" id="works-dots" aria-label="Навигация по слайдам"></div>
+        <div class="slider-dots"></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS (Slider + dots) ===== -->
+ <!-- ===== TESTIMONIALS (Slider + dots) ===== -->
   <section id="testimonials" class="container-xy py-8">
     <div class="glass angled p-6 md:p-8 reveal">
       <div class="flex items-center justify-between mb-4">
@@ -276,41 +294,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ===== CTA ===== -->
-<div class="pc-wrapper">
-  <div class="contact-us">
-       <div class="glass angled p-6 md:p-8 reveal contact-us-box">
-        <h2 class="mb-2">Хотите обсудить детали ?</h2>
-        <p class="muted">
-          Связывайтесь с нами, если у вас есть вопросы, предложения или сложные кейсы.
-              Мы внимательно относимся к обратной связи и строим решения, чтобы можно было быстрее
-              выявлять нетипичные операции и открывать данные для проверки.
-        </p>
-        <a href="contact.html" class="btn btn-primary mt-6">Задать вопрос</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="tablet-mobile-wrapper">
-  <section id="contact" class="container-xy py-10">
-    <div class="grid lg:grid-cols-2 gap-6 items-stretch">
-      <figure class="glass angled p-0 reveal">
-        <img src="img/call.png" alt="Контакт" class="w-full h-full object-cover" />
-      </figure>
-      <div class="glass angled p-6 md:p-8 reveal">
-        <h2 class="mb-2">Наше видение</h2>
-        <p class="muted">
-          Связывайтесь с нами, если у вас есть вопросы, предложения или сложные кейсы.
-              Мы внимательно относимся к обратной связи и строим решения, чтобы можно было быстрее
-              выявлять нетипичные операции и открывать данные для проверки.
-        </p>
-        <a href="contact.html" class="btn btn-primary mt-6">Задать вопрос</a>
-      </div>
-    </div>
-  </section>
-</div>
 
   <!-- ===== NEWS ===== -->
   <section id="learn" class="container-xy py-12">
@@ -374,6 +357,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- ===== FOOTER ===== -->
   <footer class="glass angled mt-10 reveal" id="footer">
