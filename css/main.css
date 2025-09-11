@@ -394,9 +394,6 @@ section, .glass{ content-visibility: auto; contain: layout style paint; }
     --line:  #cbd6ec;                 
     --gridline: rgba(0,0,0,.06);     
   }
-  .copy>h1{
-    color:white;
-  }
   .copy>p{
     color: rgb(220, 220, 220);
   }
@@ -406,4 +403,8 @@ section, .glass{ content-visibility: auto; contain: layout style paint; }
   .btn-active:active{
     color: rgb(202, 202, 202);
   }
+  .light-theme-contuct-us>*,.exphead,.copy>h1{
+    color:white;
+  }
+
 }
