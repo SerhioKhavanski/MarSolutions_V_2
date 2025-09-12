@@ -1,4 +1,87 @@
 /* Прелоадер покрывает всё окно */
+#menu__toggle{
+  display: none;
+}
+.menu__box{
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 1% 7%;
+  backdrop-filter: blur(20px);
+}
+.menu__box img{
+  width: 12em;
+}
+.menu__box>li{
+  display: flex;
+  align-items:center;
+}
+.menu__box a{
+  color: white;
+}
+.button{
+  width: 9vw;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  background-color:#22ABE2;
+  padding: 0.5em;
+}
+#search{
+  width: 9vw;
+  background-color:transparent;
+  outline: none;
+  border: 0.15em solid #ffffff;
+  color: white;
+  padding: 0.34em 1em 0.35em 3em;
+  background-image:url(../img/Search.png);
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y:center;
+  background-size: 12%;
+  margin-right: 2em;
+}
+.search{
+  display: flex;
+
+}
+/* ----------------JS---------------- */
+.menu__item.active {
+position: relative;
+}
+
+.menu__item.active::after {
+content: '';
+position: absolute;
+bottom: -4px;
+left: 0;
+width: 100%;
+height: 0.2rem;
+background-color: #22ABE2;
+}
+
+nav {
+grid-area: n;
+position: fixed;
+top: 0;
+left: 0;
+z-index: 999;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+/* Плавный переход и для transform, и для фона */
+transition: transform 0.3s ease, background-color 0.3s ease;
+
+background-color: transparent;
+}
+
+nav.scrolled {
+backdrop-filter: blur(calc(40px * var(--az)));
+}
 #preloader {
   position: fixed;
   inset: 0;
@@ -43,6 +126,12 @@
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.06); opacity: .85; }
 }
+.glossy-nav{
+  background: rgba(16, 20, 28, 0.4);
+  border:1px solid transparent;
+  box-shadow: 0 0 0 1px var(--line);
+  backdrop-filter: blur(20px);
+}
 
 /* ================= THEME (auto) ================= */
 html { color-scheme: dark light;  scroll-behavior: smooth;}
@@ -52,7 +141,7 @@ html { color-scheme: dark light;  scroll-behavior: smooth;}
   --h3-min: 20px;  --h3-vw: 2.8vw; --h3-max: 25px;
 
   /* Accent set */
-  --sol-purple: #0455b4;
+  --sol-purple: #22ABE2;
   --sol-green:  #554b8d;
   --sol-cyan:   #00D1FF;
 
@@ -76,9 +165,6 @@ html { color-scheme: dark light;  scroll-behavior: smooth;}
 }
 .menu-logo>img{ 
   width: 100%;
-}
-nav{
-  margin-left: 5%;
 }
 /* ===== Masthead: background image + overlayed text ===== */
 .masthead {
@@ -198,7 +284,7 @@ section.container-xy.clients-overlap{ position: relative; z-index: 5; transform:
 .rule{ height:1px; background:var(--line); }
 
 /* ===== FROSTED-GLASS BLOCKS ===== */
-.glass{
+.glass,.footer-glass{
   background: var(--surface);
   border:1px solid transparent;
   box-shadow: 0 0 0 1px var(--line);
@@ -255,14 +341,6 @@ transition: 0.3s;}
 #siteHeader a:hover{ color: var(--accent); }
 #siteHeader .input{ color:#fff; border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.06); }
 #siteHeader .input::placeholder{ color: rgba(255,255,255,.6); }
-
-/* Mobile nav panel */
-#mobileNav[hidden]{ display:none; }
-#mobileNav{ position: relative; z-index:45; }
-#mobileNav .mobile-nav{ position: absolute; left:0; right:0; top:8px; background: rgba(10,13,18,.96); border:1px solid var(--line); padding:6px 0; }
-#mobileNav .mobile-link{ display:block; padding: 12px var(--container-pad); color:#fff; text-decoration:none; border-top:1px solid rgba(255,255,255,.08); }
-#mobileNav .mobile-link:first-child{ border-top:0; }
-#mobileNav .mobile-link:hover{ color: var(--accent); }
 
 /* ===== Marquee ===== */
 .marquee{ overflow:hidden; position:relative; }
@@ -357,6 +435,7 @@ section, .glass{ content-visibility: auto; contain: layout style paint; }
 }
 /* ===== Mobile tuning for the background holes ===== */
 @media (max-width: 768px){
+ 
   .grid-bg{
     background-image:
       radial-gradient(circle at 12% 9%,   var(--bg) 0 calc(240px - 90px),  transparent 240px),
@@ -386,6 +465,124 @@ section, .glass{ content-visibility: auto; contain: layout style paint; }
     display: inline-block;
   }
 }
+@media(max-width:900px) {
+  .glossy-nav{
+    backdrop-filter: none;
+  }
+  .contact-us-text>img {
+    display: none;
+}
+.scrolled{
+    background-color: #14141400 !important;
+    backdrop-filter:blur(400px) !important;
+
+}
+nav{
+    background-color: transparent;
+}
+#menu__toggle {
+opacity: 0;
+}
+.menu__btn {
+display: flex; 
+align-items: center;  
+position: fixed;
+top: 20px;
+left: 20px;
+width: 26px;
+height: 26px;
+cursor: pointer;
+z-index: 20;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+display: block;
+position: absolute;
+width: 100%;
+height: 2px;
+background-color: #ffffff;
+}
+.menu__btn > span::before {
+content: '';
+top: -8px;
+}
+.menu__btn > span::after {
+content: '';
+top: 8px;
+}
+.menu__box {
+z-index: 5;
+display: block;
+position: fixed;
+visibility: hidden;
+top: 0;
+left: -100%;
+width: 200px;
+height: 100vh;
+margin: 0;
+padding: 80px 10px;
+list-style: none;
+background-color: #141414a3;
+backdrop-filter:blur(25px);
+box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+}
+.menu__box img {
+    width: 100%;
+}
+.menu__item {
+display: block;
+padding: 12px 0 8px 0;
+color: #ffffff;
+font-family: 'Roboto', sans-serif;
+font-weight: 600;
+text-decoration: none;
+width: 100%;margin-bottom: 10px;
+}
+.menu__item:hover {
+background-color: #22ace2a2;
+}
+#menu__toggle:checked ~ .menu__btn > span {
+transform: rotate(45deg);
+}
+#menu__toggle:checked ~ .menu__btn > span::before {
+top: 0;
+transform: rotate(0);
+}
+#menu__toggle:checked ~ .menu__btn > span::after {
+top: 0;
+transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+visibility: visible;
+left: 0;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+transition-duration: .25s;
+}
+.menu__box {
+transition-duration: .25s;
+}
+.menu__item {
+transition-duration: .25s;
+}
+.menu__item>img{
+    width: calc(120px * var(--az))
+}
+.search{
+    flex-wrap: wrap;
+}
+#search,.secondaryMenu{
+    width: 100% !important;
+    margin: 12px 0;
+}
+#search{
+    margin-top: 40px;
+}
+  /* ---------------------menu--------------------------- */
+}
 @media (prefers-color-scheme: light){
   :root{
     --bg: #f6f7fb;                
@@ -406,6 +603,9 @@ section, .glass{ content-visibility: auto; contain: layout style paint; }
   }
   .light-theme-contuct-us>*,.exphead,.copy>h1{
     color:white;
+  }
+  .glass-img {
+    background-color: rgb(241 241 245) !important;
   }
 
 

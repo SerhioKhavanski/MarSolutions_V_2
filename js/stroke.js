@@ -1,6 +1,6 @@
 /* ====== CANVAS-рамка для .glass.angled без враперов ====== */
 (function(){
-  const SEL = '.glass.angled';
+  const SEL = '.glass.angled,.footer-glass';
   const items = Array.from(document.querySelectorAll(SEL));
   if(!items.length) return;
 

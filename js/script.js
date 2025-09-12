@@ -1,35 +1,5 @@
-/* ============== Sticky Header: hide on down, show on up ============== */
-(function(){
-  const h = document.getElementById('siteHeader');
-  if(!h) return;
-  let lastY = window.scrollY, ticking = false;
-  function onScroll(){
-    const y = window.scrollY;
-    const goingDown = y > lastY;
-    const past = y > 120;
-    if(goingDown && past){ h.classList.add('nav-hidden'); }
-    else { h.classList.remove('nav-hidden'); }
-    lastY = y; ticking = false;
-  }
-  window.addEventListener('scroll', ()=>{ if(!ticking){ requestAnimationFrame(onScroll); ticking=true; } }, {passive:true});
-})();
 
-/* =================== Mobile Nav =================== */
-(function(){
-  const btn   = document.getElementById('navToggle');
-  const panel = document.getElementById('mobileNav');
-  const hdr   = document.getElementById('siteHeader');
-  if(!btn || !panel || !hdr) return;
-  const mqLG = matchMedia('(min-width: 1024px)'); // Tailwind lg
-  function isOpen(){ return !panel.hasAttribute('hidden'); }
-  function open(){ panel.removeAttribute('hidden'); btn.setAttribute('aria-expanded','true'); hdr.classList.remove('nav-hidden'); }
-  function close(){ panel.setAttribute('hidden',''); btn.setAttribute('aria-expanded','false'); }
-  function toggle(){ isOpen() ? close() : open(); }
-  btn.addEventListener('click', toggle);
-  panel.addEventListener('click', e=>{ const a = e.target.closest('a'); if(a) close(); });
-  document.addEventListener('keydown', e=>{ if(e.key === 'Escape' && isOpen()) close(); });
-  mqLG.addEventListener?.('change', e=>{ if(e.matches) close(); });
-})();
+
 
 /* ============== Slider util (dots + arrows) ============== */
 function makeSlider(rootSelector, options={ perView:{mobile:1,tablet:1,desktop:1}, dots:true }){

@@ -22,44 +22,24 @@
   </div>
 <!-- Ambient background -->
 <div class="bg-mesh"></div>
-  <header id="siteHeader" class="reveal">
-    <div class="container-xy">
-      <div class="flex items-stretch justify-between gap-4">
-        <div class="flex items-center gap-6 py-3">
-          <a href="#" class="menu-logo">
-            <img src="img/logo-dark.svg" alt="">
-          </a>
-          <!-- Desktop nav -->
-          <nav class="hidden lg:flex items-center gap-6 text-sm">
-            <a href="index.html" class="hover:text-[var(--accent)]">Главная</a>
-            <a href="about.html" class="hover:text-[var(--accent)]">О нас</a>
-            <a href="product.html" class="hover:text-[var(--accent)]">Наши продукты</a>
-            <a href="" class="hover:text-[var(--accent)]">Ресурсы</a>
-            <a href="#footer" class="hover:text-[var(--accent)]">Контакты</a>
-          </nav>
-        </div>
-        <div class="flex items-center gap-2 py-2">
-          <input class="input w-40 md:w-64" placeholder="Поиск…" />
-          <!-- Mobile menu button -->
-          <button id="navToggle" class="btn chip lg:hidden ml-2"
-                  aria-controls="mobileNav" aria-expanded="false" type="button">
-            Меню
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile panel -->
-      <nav id="mobileNav" class="lg:hidden" hidden>
-        <div class="mobile-nav glass angled">
-            <a href="index.html" class="hover:text-[var(--accent)]">Главная</a>
-            <a href="about.html" class="hover:text-[var(--accent)]">О нас</a>
-            <a href="product.html" class="hover:text-[var(--accent)]">Наши продукты</a>
-            <a href="" class="hover:text-[var(--accent)]">Ресурсы</a>
-            <a href="" class="hover:text-[var(--accent)]">Контакты</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+<nav class="glossy-nav">
+  <div class="hamburger-menu">
+      <input id="menu__toggle" type="checkbox" />
+      <label class="menu__btn" for="menu__toggle">
+          <span></span>
+      </label>
+      <ul class="menu__box">
+          <li><a class="menu__item__img" href="index.html"><img src="img/logo-dark.svg" alt=""></a></li>
+          <li><a class="menu__item" href="index.html">Главная</a></li>
+          <li><a class="menu__item" href="about.html">О нас</a></li>
+          <li><a class="menu__item" href="product.html">Наши продукты</a></li>
+          <li><a class="menu__item" href="resources.html">Ресурсы</a></li>
+          <li><a class="menu__item__end" href="#contacts">Контакты</a></li>
+          <li class="search"> <input id="search" type="text" placeholder="Поиск..."> <a class="button secondary secondaryMenu" href="#">Связаться</a></li>
+      </ul>
+  </div>
+  <!------------------------- menu ----------------------------->
+</nav>
 
   <!-- ===== MASTHEAD (Hero) ===== -->
 <section id="masthead" class="masthead reveal mastheadAbout">
@@ -129,7 +109,7 @@
       </div>
     </div>
     </article>
-    <div class="glass-img">
+    <div class="glass-img reveal">
       <img src="img/Combo Chart.png" alt="">
     </div>
   </div>
@@ -144,7 +124,7 @@
       </div>
     </div>
     </article>
-    <div class="glass-img">
+    <div class="glass-img reveal">
       <img src="img/Combo Chart.png" alt="">
     </div>
   </div>
@@ -161,7 +141,7 @@
       </div>
     </div>
     </article>
-    <div class="glass-img">
+    <div class="glass-img reveal">
       <img src="img/Combo Chart.png" alt="">
     </div>
   </div>
@@ -176,7 +156,7 @@
       </div>
     </div>
     </article>
-    <div class="glass-img">
+    <div class="glass-img reveal">
       <img src="img/Combo Chart.png" alt="">
     </div>
   </div>
@@ -292,7 +272,7 @@
     </figure>
     <div class="flex flex-col justify-between gap-6 pc-wrapper">
       <div class="flex justify-end cultureCard-wrapper">
-        <div class="glass-img culture-img">
+        <div class="glass-img reveal culture-img">
           <img src="img/Combo Chart.png" alt="">
         </div>
         <article class="glass angled pl-[10%] p-5 reveal widthControl">
@@ -305,7 +285,7 @@
         </article>
       </div>
        <div class="flex justify-end cultureCard-wrapper">
-        <div class="glass-img culture-img">
+        <div class="glass-img reveal culture-img">
           <img src="img/Combo Chart.png" alt="">
         </div>
         <article class="glass angled pl-[10%] p-5 reveal widthControl">
@@ -319,7 +299,7 @@
         
       </div>
        <div class="flex justify-end cultureCard-wrapper">
-        <div class="glass-img culture-img">
+        <div class="glass-img reveal culture-img">
           <img src="img/Combo Chart.png" alt="">
         </div>
         <article class="glass angled pl-[10%] p-5 reveal widthControl">
@@ -337,7 +317,7 @@
     <div class="flex flex-col justify-between gap-10 tablet-mobile-wrapper tablet-mobile-gap">
         <article class="glass angled p-5 reveal">
           <div class="flex items-start gap-3">
-            <div class="glass-img culture-img">
+            <div class="glass-img reveal culture-img">
               <img src="img/Combo Chart.png" alt="">
             </div>
             <div>
@@ -349,7 +329,7 @@
 
         <article class="glass angled p-5 reveal">
           <div class="flex items-start gap-3">
-            <div class="glass-img culture-img">
+            <div class="glass-img reveal culture-img">
               <img src="img/Combo Chart.png" alt="">
             </div>
             <div>
@@ -361,7 +341,7 @@
 
         <article class="glass angled p-5 reveal">
           <div class="flex items-start gap-3">
-            <div class="glass-img culture-img">
+            <div class="glass-img reveal culture-img">
               <img src="img/Combo Chart.png" alt="">
             </div>
             <div>
@@ -431,7 +411,7 @@
 </div>
 </section>
 <!-- ===== FOOTER ===== -->
-<footer class="glass angled mt-10 reveal" id="footer">
+<footer class="footer-glass  angled mt-10" id="contacts">
 <div class="container-xy py-10">
 <div class="grid md:grid-cols-5 gap-10">
 <div class="md:col-span-2">
@@ -479,5 +459,6 @@
   <script src="js/stroke.js" ></script>
   <script src="js/loader.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/menu.js"></script>
 </body>
 </html>

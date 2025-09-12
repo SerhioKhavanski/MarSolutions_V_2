@@ -39,7 +39,7 @@
   padding: 2%;
   width: 80px;
   left: 4%;
-  top: 17%;
+  top: 15%;
 }
 @media (max-width:1024px){ .expert-grid{ grid-template-columns: 1fr; } }
 /* Timeline */
