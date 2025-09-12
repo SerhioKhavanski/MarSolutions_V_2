@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="dark light">
+  <title>MMAR Solution — Ресурсы</title>
+  <link rel="shortcut icon" href="img/Logo_Mar_solutions.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/resurces.css">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            ui: ["Inter","system-ui","Segoe UI","Roboto","Arial","sans-serif"],
+            mono: ["ui-monospace","SFMono-Regular","Menlo","Consolas","monospace"]
+          },
+          screens: { xs: "420px" }
+        }
+      }
+    }
+  </script>
+
+
+</head>
+<body class="grid-bg">
+      <!-- Лоадер -->
+  <div id="preloader">
+    <!-- два лого, показываем одно в зависимости от темы -->
+    <img src="img/logo-dark.svg" alt="Logo Dark" class="logo dark" />
+    <img src="img/logo-light.svg" alt="Logo Light" class="logo light" />
+  </div>
+<!-- Ambient background -->
+<div class="bg-mesh"></div>
+<nav class="glossy-nav">
+  <div class="hamburger-menu">
+      <input id="menu__toggle" type="checkbox" />
+      <label class="menu__btn" for="menu__toggle">
+          <span></span>
+      </label>
+      <ul class="menu__box">
+          <li><a class="menu__item__img" href="index.html"><img src="img/logo-dark.svg" alt=""></a></li>
+          <li><a class="menu__item" href="index.html">Главная</a></li>
+          <li><a class="menu__item" href="about.html">О нас</a></li>
+          <li><a class="menu__item" href="product.html">Наши продукты</a></li>
+          <li><a class="menu__item" href="resources.html">Ресурсы</a></li>
+          <li><a class="menu__item__end" href="#contacts">Контакты</a></li>
+          <li class="search"> <input id="search" type="text" placeholder="Поиск..."> <a class="button secondary secondaryMenu" href="#">Связаться</a></li>
+      </ul>
+  </div>
+  <!------------------------- menu ----------------------------->
+</nav>
+
+  <!-- ===== MASTHEAD (Hero) ===== -->
+<section id="masthead" class="masthead reveal mastheadAbout">
+
+
+  <div class="container-xy">
+    <div class="copy glass angled p-6 md:p-10 moreBlur">
+      <h1>Защита от манипуляций и&nbsp;финансовых махинаций</h1>
+      <p class="muted mt-4 max-w-prose">
+        Компания <strong>MAR Solutions</strong> разрабатывает программные решения
+        для мониторинга рынка, выявления аномалий и предотвращения схем финансовых злоупотреблений.
+        Мы помогаем банкам и регуляторам обеспечивать контроль операций, соответствие требованиям и безопасность данных.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-6">
+        <a href="#contact" class="btn btn-primary btn-active">Связаться</a>
+        <a href="#learn" class="btn btn-active">Узнать больше</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION: Как это работает -->
+<section id="how-it-works" class="container-xy py-12">
+  <h2 class="mb-6">Как это работает</h2>
+
+  <!-- Общая колонка с линией и узлами -->
+  <div class="how-wrap">
+
+    <!-- Ряд 1 -->
+    <div class="how-row">
+      <div class="how-linecell">
+        <span class="how-node" aria-hidden="true"></span>
+      </div>
+
+      <article class="glass angled how-card p-5 reveal">
+        <div class="how-card-grid">
+          <figure class="m-0 p-0">
+            <img src="https://placehold.co/900x520/0b1020/ffffff?text=CHART+%231"
+                 alt="График 1" class="w-full h-full object-cover"
+                 loading="lazy" decoding="async">
+          </figure>
+
+          <div class="how-card-copy">
+            <div class="chip mb-3">MARTA</div>
+            <h3 class="mb-2">MARTA</h3>
+            <p class="muted">
+              Сервис MARTA, с одной стороны, являясь коробочным решением,
+              обеспечивает его быстрое и эффективное внедрение. С другой стороны,
+              гибкие настройки сервиса позволяют адаптировать бизнес-логику под
+              требования любого профессионального участника рынка. Специалисты
+              компании имеют большой опыт и оказывают консультационную и
+              методологическую поддержку бизнес‑процессов, реализованных в системе.
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Ряд 2 -->
+    <div class="how-row">
+      <div class="how-linecell">
+        <span class="how-node" aria-hidden="true"></span>
+      </div>
+
+      <article class="glass angled how-card p-5 reveal">
+        <div class="how-card-grid">
+          <figure class="m-0 p-0">
+            <img src="https://placehold.co/900x520/0b1020/ffffff?text=CHART+%232"
+                 alt="График 2" class="w-full h-full object-cover"
+                 loading="lazy" decoding="async">
+          </figure>
+
+          <div class="how-card-copy">
+            <div class="chip mb-3">MARTA</div>
+            <h3 class="mb-2">MARTA</h3>
+            <p class="muted">
+              Сервис MARTA, с одной стороны, являясь коробочным решением,
+              обеспечивает его быстрое и эффективное внедрение. С другой стороны,
+              гибкие настройки сервиса позволяют адаптировать бизнес‑логику под
+              требования любого профессионального участника рынка. Специалисты
+              компании имеют большой опыт и оказывают консультационную и
+              методологическую поддержку бизнес‑процессов, реализованных в системе.
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Ряд 3 -->
+    <div class="how-row">
+      <div class="how-linecell">
+        <span class="how-node" aria-hidden="true"></span>
+      </div>
+
+      <article class="glass angled how-card p-5 reveal">
+        <div class="how-card-grid">
+          <figure class="m-0 p-0">
+            <img src="https://placehold.co/900x520/0b1020/ffffff?text=CHART+%233"
+                 alt="График 3" class="w-full h-full object-cover"
+                 loading="lazy" decoding="async">
+          </figure>
+
+          <div class="how-card-copy">
+            <div class="chip mb-3">MARTA</div>
+            <h3 class="mb-2">MARTA</h3>
+            <p class="muted">
+              Сервис MARTA, с одной стороны, являясь коробочным решением,
+              обеспечивает его быстрое и эффективное внедрение. С другой стороны,
+              гибкие настройки сервиса позволяют адаптировать бизнес‑логику под
+              требования любого профессионального участника рынка. Специалисты
+              компании имеют большой опыт и оказывают консультационную и
+              методологическую поддержку бизнес‑процессов, реализованных в системе.
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SECTION: Последние версии (Аккордеоны) -->
+<section id="versions" class="container-xy py-10">
+  <h2 class="mb-6">Последние версии</h2>
+
+  <div class="acc" role="list">
+
+    <article class="acc-item glass angled reveal" role="listitem">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-caret" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="40" height="40">
+            <polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="acc-title">Версия 1.1</span>
+
+      </button>
+      <div class="acc-panel" hidden>
+        <div class="acc-body">
+          <p class="muted">
+            Сервис MARTA, с одной стороны, являясь коробочным решением, обеспечивает его быстрое и
+            эффективное внедрение. С другой стороны, гибкие настройки сервиса позволяют адаптировать
+            бизнес‑логику под требования любого профессионального участника рынка.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="acc-item glass angled reveal" role="listitem">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-caret" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="40" height="40">
+            <polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="acc-title">Версия 1.1</span>
+
+      </button>
+      <div class="acc-panel" hidden>
+        <div class="acc-body">
+          <p class="muted">
+            Сервис MARTA, с одной стороны, являясь коробочным решением, обеспечивает его быстрое и
+            эффективное внедрение. С другой стороны, гибкие настройки сервиса позволяют адаптировать
+            бизнес‑логику под требования любого профессионального участника рынка.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="acc-item glass angled reveal" role="listitem">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-caret" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="40" height="40">
+            <polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="acc-title">Версия 1.1</span>
+
+      </button>
+      <div class="acc-panel" hidden>
+        <div class="acc-body">
+          <p class="muted">
+            Сервис MARTA, с одной стороны, являясь коробочным решением, обеспечивает его быстрое и
+            эффективное внедрение. С другой стороны, гибкие настройки сервиса позволяют адаптировать
+            бизнес‑логику под требования любого профессионального участника рынка.
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SECTION: Последние версии (Аккордеоны) -->
+<section id="versions" class="container-xy py-10">
+  <h2 class="mb-6">Законодательство</h2>
+
+  <div class="acc" role="list">
+
+    <article class="acc-item glass angled reveal" role="listitem">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-caret" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="40" height="40">
+            <polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="acc-title">Закон 1.1</span>
+
+      </button>
+      <div class="acc-panel" hidden>
+        <div class="acc-body">
+          <p class="muted">
+            Сервис MARTA, с одной стороны, являясь коробочным решением, обеспечивает его быстрое и
+            эффективное внедрение. С другой стороны, гибкие настройки сервиса позволяют адаптировать
+            бизнес‑логику под требования любого профессионального участника рынка.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="acc-item glass angled reveal" role="listitem">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-caret" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="40" height="40">
+            <polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="acc-title">Закон 1.1</span>
+
+      </button>
+      <div class="acc-panel" hidden>
+        <div class="acc-body">
+          <p class="muted">
+            Сервис MARTA, с одной стороны, являясь коробочным решением, обеспечивает его быстрое и
+            эффективное внедрение. С другой стороны, гибкие настройки сервиса позволяют адаптировать
+            бизнес‑логику под требования любого профессионального участника рынка.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="acc-item glass angled reveal" role="listitem">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-caret" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="40" height="40">
+            <polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="acc-title">Закон 1.1</span>
+
+      </button>
+      <div class="acc-panel" hidden>
+        <div class="acc-body">
+          <p class="muted">
+            Сервис MARTA, с одной стороны, являясь коробочным решением, обеспечивает его быстрое и
+            эффективное внедрение. С другой стороны, гибкие настройки сервиса позволяют адаптировать
+            бизнес‑логику под требования любого профессионального участника рынка.
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+  
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer-glass  angled mt-10" id="contacts">
+  <div class="container-xy py-10">
+    <div class="grid md:grid-cols-5 gap-10">
+      <div class="md:col-span-2">
+        <div class="font-mono text-sm tracking-widest inline-block px-2 py-1 border border-[var(--line)] mb-4">
+          MAR <span class="muted">SOLUTIONS</span>
+        </div>
+        <p class="muted">
+          MAR SOLUTIONS — платформа мониторинга и анализа рыночных данных.
+          Мы помогаем выявлять манипуляции, предотвращать мошенничество и обеспечивать соответствие требованиям.
+        </p>
+        <div class="flex gap-2 mt-4">
+          <a class="btn chip" href="#">LinkedIn</a>
+          <a class="btn chip" href="#">GitHub</a>
+          <a class="btn chip" href="#">Email</a>
+        </div>
+      </div>
+
+      <div class="text-sm">
+        <h3 class="mb-2">Заголовок</h3>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Новости</a>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Карьера</a>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Документы</a>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Конфиденциальность</a>
+      </div>
+      <div class="text-sm">
+        <h3 class="mb-2">Заголовок</h3>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Наши решения</a>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Партнёры</a>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Поддержка</a>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Контакты</a>
+      </div>
+      <div class="text-sm">
+        <h3 class="mb-2">Заголовок</h3>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Блог</a>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">События</a>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Команда</a>
+        <a class="block py-1 muted hover:text-[var(--accent)]" href="#">Ресурсы</a>
+      </div>
+    </div>
+    <div class="rule my-8"></div>
+    <div class="text-xs muted">© MAR Solutions. Все права защищены.</div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+   <script src="js/stroke.js" ></script>
+  <script defer src="js/script.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/accardion.js" ></script>
+</body>
+</html>
