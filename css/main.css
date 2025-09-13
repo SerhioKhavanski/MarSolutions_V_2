@@ -433,6 +433,9 @@ section, .glass{ content-visibility: auto; contain: layout style paint; }
   max-width: 362px;
   margin-top: 4%;
 }
+.footer-glass img{
+  width: 40%;
+}
 /* ===== Mobile tuning for the background holes ===== */
 @media (max-width: 768px){
  

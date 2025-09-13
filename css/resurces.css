@@ -99,7 +99,34 @@
 
 /* Мобильные отступы */
 
+.docbgImg{
+  background-image:url(../img/bgtable.png);
+  background-repeat: no-repeat;
+}
+.doc{
+  max-width: 450px;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  backdrop-filter: blur(10px)!important;
+
+}
+.tablet{
+  position: relative;
+}
   
+.docs{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: absolute;
+  left: 11rem;
+  top: 16rem;
+}
+.docbgImg>h2{
+  text-align: center;
+}
   /* Адаптив: на планшетах/мобилках — одна колонка, скрываем длинную линию */
   @media (max-width: 980px){
     #how-it-works .how-wrap::before{ left: 24px; }
@@ -116,5 +143,35 @@
     #versions .acc-header{ padding:14px; grid-template-columns: 36px 1fr 18px; }
     #versions .acc-body{ padding:0 14px 14px 14px; }
   }
+@media(max-width:1300px){
+  .docs{
+    left: auto;
+    max-width: 320px;
+  }
+
+
+}
+@media (max-width: 980px){
+  .docs{
+    left:auto;
+    max-width: 320px;
+  }
+  .docbgImg{
+    background-image: none;
+  }
+}
+@media (prefers-color-scheme: light) and (min-width:769px){
+  .doc {
+    background-color: #0a0d125c !important;
+  }
+  .doc>h3{
+    color: white;
+  }
+}
+@media(max-width:768px){
+  .doc{
+    max-width: 100%;
+  }
+}
   
   
